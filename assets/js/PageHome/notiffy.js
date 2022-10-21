@@ -28,12 +28,9 @@
             }
         }
     }
+    document.getElementById('overlay').classList.add('open_overlay');
 }
 
-// function activeOverlay(){
-//     document.getElementsByClassName('overlay')[0].classList.add('block_overlay');
-//     console.log('hello')
-// }
 // activeOverlay();
 // xử lý đóng mở user 
 document.getElementsByClassName('user_header')[0].onclick = function(){
@@ -42,16 +39,22 @@ document.getElementsByClassName('user_header')[0].onclick = function(){
     document.getElementsByClassName('js_fun_show_hide')[0].classList.remove('js_show_notify');
     // document.getElementsByClassName('overlay')[0].classList.add('block_overlay');
     // activeOverlay();
+    // document.getElementById('overlay').classList.add('open_overlay');
+    // console.log(document.getElementById('overlay'))
+    document.getElementById('overlay').classList.add('open_overlay');
 }
 
 // xử lý khi đóng các box lên khi click ra ngoài box 
-const modal = document.getElementsByClassName('notification_box')[0];
-document.getElementsByClassName('main')[0].onclick = function(e){
-    let clickInside = modal.contains(e.target)
-    if(clickInside){
-        modal.classList.remove('js_show_notify');
-        console.log(modal)
-    }
+// const modal = document.getElementsByClassName('notification_box')[0];
+document.getElementById('overlay').onclick = function(e){
+    // let clickInside = modal.contains(e.target)
+    // if(!clickInside){
+        console.log('modal')
+        document.getElementById('overlay').classList.remove('open_overlay')
+        document.getElementsByClassName('js_fun_show_hide')[0].classList.remove('js_show_notify');
+        document.getElementsByClassName('box_info_user')[0].classList.remove('active_box_info_user');
+        document.getElementsByClassName('notification_header')[0].classList.remove('notification_header_active_js');
+    // }
 }
 
 // const modal = document.querySelector('.modal')           box
