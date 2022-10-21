@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-}
+}   
 
 .center{
     display: flex;
@@ -295,6 +295,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
     user-select: none;
     font-weight: 600;
     padding-top: 5px;
+    z-index: 10;
 }
 
 .list_notify_header{
