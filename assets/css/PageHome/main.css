@@ -572,12 +572,17 @@ i.fa-solid.fa-circle.notification_header_viewed{
     font-weight: bold;
     opacity: 0;
     animation: showSliderContent 1s ease-in-out 1 forwards;
+    color: #fff;
+    text-shadow: 0 0 10px #373737;
 }
 
 .slider_item .slider_item_decs{
     margin: 20px 0;
     opacity: 0;
     animation: showSliderContent 1s ease-in-out .3s 1 forwards;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
 }
 
 .slider_item .slider_see_more{
