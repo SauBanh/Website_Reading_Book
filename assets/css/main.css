@@ -1,17 +1,28 @@
 /* css header  */
-#overlay.open_overlay{
+.test.open_overlay{
     display: block;
 }
 
-#overlay{
+.test{
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 10;
     display: none;
 }
+
+/* .overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 20;
+    display: none;
+    background-color: #fff;
+} */
 
 .header{
     background-color: var(--primary-color);
@@ -20,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 10;
     position: fixed;
     top: 0;
     right: 0;
@@ -65,6 +76,7 @@
     border-radius: 5px;
     padding: 7px 5px;
     margin: 0 20px;
+    position: relative;
 }
 
 .search_header_input{
@@ -73,6 +85,42 @@
     background-color: #373737;
     border: none;
     font-size: 16px;
+}
+
+.box_search{
+    position: absolute;
+    top: calc(100% + 20px);
+    width: 100%;
+    right: 0;
+    background-color: var(--box-notification);
+    display: none;
+    z-index: 20;
+}
+
+.show_box_search{
+    display: block;
+}
+
+.box_search_list{
+    list-style: none;
+    width: 100%;
+}
+
+.box_search_item{
+    width: 100%;
+}
+
+.box_search_link{
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 20px 30px;
+}
+
+.box_search_link:hover{
+    background-color: var(--hover-color);
 }
 
 .search_header_input:focus{
@@ -89,6 +137,54 @@
     
 }
 
+.user_header_mobile{
+    /* position: relative; */
+}
+
+.box_notify_mobile{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--box-notification);
+    animation: notify_mobile ease-in .3s;
+    z-index: 21;
+    display: none;
+}
+
+.show_box_notify_mobile{
+    display: block;
+}
+
+.box_notify_mobile_list{
+    width: 100%;
+    list-style: none;
+}
+
+.box_notify_mobile_item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.box_notify_mobile_link{
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+}
+
+.icon_close{
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+}
+
 /* css tài khoản user  */
 .user_header{
     position: relative;
@@ -96,7 +192,7 @@
 
 .list_box_info_user{
     list-style: none;
-    z-index: 3;
+    z-index: 30;
 }
 
 .box_info_user{
@@ -112,7 +208,7 @@
     border-radius: 10px;
     transform-origin: calc(90%) top;
     animation: headerNotifyGrowth ease-in-out .3s;
-    z-index: 2;
+    z-index: 20;
 }
 
 .active_box_info_user{
@@ -152,6 +248,13 @@
 }
 
 .user_header .user_header_img{
+    width: 45px;
+    border-radius: 50%;
+    border: 3px solid #E7E2E2;
+}
+
+.user_header_img_mobile{
+    display: none;
     width: 45px;
     border-radius: 50%;
     border: 3px solid #E7E2E2;
@@ -236,7 +339,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
     transform-origin: calc(90%) top;
     animation: headerNotifyGrowth ease-in-out .3s;
     /* overflow: auto; */
-    z-index: 2;
+    z-index: 20;
 }
 
 /* dùng để tắt mở box thông báo */

@@ -13,4 +13,19 @@
     .category_top{
         display: none;
     }
+    .user_header_img_mobile{
+        display: block;
+    }
+    .hide_on_mobile{
+        display: none;
+    }
+    .info_header{
+        min-width: 100px;
+    }
+    .notification_box{
+        width: 300px;
+    }
+    .header_content{
+        justify-content: space-evenly;
+    }
 }
