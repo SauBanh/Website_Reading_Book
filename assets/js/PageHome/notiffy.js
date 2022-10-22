@@ -69,8 +69,6 @@ document.getElementsByClassName('user_header_mobile')[0].onclick = function(){
     document.getElementsByClassName('notification_header')[0].classList.remove('notification_header_active_js');
 }
 
-console.log(document.getElementsByClassName('search_header_input')[0])
-
 document.getElementsByClassName('search_header_input')[0].onclick = function(){
     document.getElementsByClassName('box_search')[0].classList.add('show_box_search')
     document.getElementsByClassName('test')[0].classList.add('open_overlay');
