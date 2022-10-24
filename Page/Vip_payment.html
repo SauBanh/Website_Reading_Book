@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>VIP payment</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/pageVip/vip_payment.css">
+    </head>
+<body>
+
+
+
+    <div class="container_payment">
+
+        <div class="container_payment_row">
+          <div class="col-50">
+            <h3>Thanh toán momo</h3>
+            <div class="MoMo_Logo">
+                <img src="../assets/img/New folder/MoMo_Logo.png" alt="">
+            </div>
+                
+            <input type="submit" value="Continue to checkout" class="btn">
+          </div>
+          
+          <div class="col-50">
+            <h3>Thanh toán bằng tài khoản ngân hàng</h3>
+            <label for="fname">Thẻ được chấp nhận</label>
+
+            <div class="container_payment_icon">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+
+            <label for="name">Họ tên</label>
+            <input type="text" id="name" name="cardname" placeholder="Sáu Bảnh">
+            <label for="num">Số thẻ ngân hàng</label>
+            <input type="text" id="num" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+            <div class="container_payment_row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+
+            <input type="submit" value="Continue to checkout" class="btn">
+          </div>  
+
+        </div> 
+
+    </div>
+
+</body>
+</html>
