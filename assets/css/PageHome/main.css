@@ -244,6 +244,11 @@
     color: #fff;
 }
 
+.name_account{
+    border-bottom: 1px solid #fff;
+    user-select: none;
+}
+
 .link_box_info_user:hover{
     background-color: var(--hover-color);
 }
