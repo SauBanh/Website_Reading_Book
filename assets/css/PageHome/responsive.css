@@ -5,7 +5,9 @@
 
 /* Table */
 @media (min-width: 46.25em) and (max-width: 63.9375em){
-
+    .link_item_category_top{
+        font-size: 12px;
+    }
 }
 
 /* Mobile */

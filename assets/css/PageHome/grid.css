@@ -430,14 +430,14 @@
 /* Tablet - PC low resolution */
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
     .wide {
-        width: 850px;
+        width: 730px;
     }
 }
 
 /* > PC low resolution */
 @media (min-width: 64em) and (max-width: 77.4375em) {
     .wide {
-        width: 1050px;
+        width: 1000px;
     }
 
     .wide .row {
