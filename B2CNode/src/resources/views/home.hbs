@@ -1,0 +1,22 @@
+<h1>SauBanhAnCut</h1>
+{{#if session}}
+<h2>Hi, {{session.username}}</h2>
+{{/if}}
+<form action="/order" method="get">
+    <button type="submit">Gio hang</button>
+</form>
+<form action="/auth/login" method="get">
+    <button type="submit">Dang nhap</button>
+</form>
+<form action="/auth/login/facebook" method="get">
+    <button type="submit">Dang nhap fb</button>
+</form>
+<form action="/auth/login/google" method="get">
+    <button type="submit">Dang nhap google</button>
+</form>
+<form action="/auth/signup" method="get">
+    <button type="submit">Dang ki</button>
+</form>
+<form action="/auth/logout" method="get">
+    <button type="submit">Dang xuat</button>
+</form>
