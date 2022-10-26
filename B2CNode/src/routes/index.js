@@ -10,7 +10,7 @@ function route(app) {
 
   app.use('/order', pay);
 
-  app.use('/auth', upload);
+  app.use('/upload', upload);
 }
 
 module.exports = route;

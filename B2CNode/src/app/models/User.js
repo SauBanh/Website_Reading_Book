@@ -6,7 +6,8 @@ const user = new Schema({
     username: {type: String, default: null},
     hashpassword: {type: String, default: null},
     ggid: {type: String, default: null},
-    fbid: {type: String, default: null}
+    fbid: {type: String, default: null},
+    vipexpire: {type: Date, default: Date.now()}
 },  {
     timestamps: true,
 });
