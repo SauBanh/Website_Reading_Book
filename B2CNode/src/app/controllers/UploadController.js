@@ -20,7 +20,7 @@ class UploadController {
   photoup(req, res) {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
-    formData.pic = '/b2c_data/' + req.body.bookname + "/" + req.user.username + req.file.originalname;
+    formData.pic = '/b2c_data/' + req.body.bookname + req.user._id.toString() + "/" + req.user.username + req.file.originalname;
     formData.author = req.user.username;
     formData.email = req.user.email;
     const newBook = new book(formData);

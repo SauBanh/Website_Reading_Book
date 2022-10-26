@@ -7,7 +7,7 @@ const multer = require('multer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     //can phan biet path cho book va path cho chap
-    const dir = 'src/public/b2c_data/' + req.body.bookname;
+    const dir = 'src/public/b2c_data/' + req.body.bookname + req.user._id.toString();
     fs.exists(dir, exist => {
       if(!exist) {
         return fs.mkdir(dir, err => cb(err, dir))
