@@ -1,6 +1,7 @@
 const newRouter = require('./home');
 const pay = require('./vnpay');
-var authRouter = require('./auth');
+const authRouter = require('./auth');
+const upload = require('./upload');
 
 function route(app) {
   app.use('/', newRouter);
@@ -8,6 +9,8 @@ function route(app) {
   app.use('/auth', authRouter);
 
   app.use('/order', pay);
+
+  app.use('/auth', upload);
 }
 
 module.exports = route;
