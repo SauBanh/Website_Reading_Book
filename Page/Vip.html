@@ -1,49 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-      <meta charset="UTF-8">
-      <title>Đăng ký VIP</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="../assets/css/pageVip/cssVip.css">
+        <meta charset="UTF-8">
+        <title>VIP payment</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../assets/css/pageVip/vipcss.css">
+        
     </head>
-    <body>
-        <div class="container">
-          <div class="container_row ">
+<body>
 
-            <div class="col-sm-4">
-              
-            </div>
-            <!-- kết thúc cột 1 -->
-            
-            <div class="col-sm-4 ">
-              <div class="container_row_card text-center">
-                <div class="container_row_card_title">
-                  <i class="fa fa-book" aria-hidden="true"></i>
-                  <h2>Đăng ký ngay</h2>
-                </div>
-                <div class="price">
-                  <h3>50.000<sup>đ</sup> </h3>
-                </div>
-                <div class="option">
-                  <ul>
-                  <li> <i class="fa fa-check" aria-hidden="true"></i> Không quảng cáo </li>
-                  <li> <i class="fa fa-check" aria-hidden="true"></i> Đọc truyện VIP </li>
-                  <li> <i class="fa fa-check" aria-hidden="true"></i> Cấp quyền truy cập server VIP </li>
-                  <li> <i class="fa fa-times" aria-hidden="true"></i> Tải truyện offline </li>
-                </ul>
-                </div>
-                <a href="./Vip_payment.html">Order Now </a>
-              </div>
-            </div>
-            <!-- kết thúc cột 2 -->
-
-            <div class="col-sm-4">
-              
-            </div>
-            <!-- kết thúc cột 3 -->
-          </div>
+  <div class="payment">
+    <div class="payment_header">
+      <span> Bạn Mong Đợi Gì Ở VIP Truyện B2C?</span>
+      <span></span>
+    </div>
+    <div class="payment_box">
+      
+      <div class="payment_box_row">
+        
+        <div class="col-1">        
+          <img src="../assets/img/pageVip/vip.jpg">
         </div>
         
-    </body>
-    </html>
-    
+        <div class="col-2">
+          <h3>Đăng kí vip </h3>
+          <p>Mua vip để có thể đọc truyện thoải mái hơn.</p>
+        </div>
+
+        <div class="col-3">
+          
+        </div>
+
+        <div class="col-4">
+          <button class="dropdown-btn">Gói VIP 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a onclick="ngay()">Vip Ngày</a>
+            <a onclick="tuan()">Vip Tuần</a>
+            <a onclick="thang()">Vip Tháng</a>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="option">
+            <ul>
+            <li> <i class="fa fa-check" aria-hidden="true"></i> Không quảng cáo </li>
+            <li> <i class="fa fa-check" aria-hidden="true"></i> Đọc truyện VIP </li>
+            <li> <i class="fa fa-check" aria-hidden="true"></i> Cấp quyền truy cập server VIP </li>
+            <li> <i class="fa fa-check" aria-hidden="true"></i> Tải truyện offline </li>
+          </ul>
+          </div>
+        </div>
+       
+        <div class="col-6">
+
+        </div> 
+      </div>
+    </div>
+    <div class="payment_row">
+      <div class="col-70">
+        
+      </div>
+      <div class="col-8">
+         Giá thành: 
+      </div>
+      <div class="col-7">
+          <span id="money"></span> 
+      
+      </div> 
+      <div class="col-10">
+          <input type="submit" value="Thanh toán" class="btn">
+      </div> 
+    </div>
+                
+  </div>
+
+
+  <button id="myBtn">Open popup</button>
+  
+  <div id="mypopup" class="popup">
+  
+    <div class="popup_content">
+      <span class="close">&times;</span>
+      <i class="fa-solid fa-circle-check"></i>
+            <h3>ĐĂNG KÍ THÀNH CÔNG</h3>
+            <p>Chúc mừng bạn đã đăng kí thành công gói VIP bạn sẽ được hưởng các đặc quyền VIP từ bây giờ!</p>
+            <p><span>Ngày bắt đầu:</span> <span id="now"></span> <span style="padding-left:2%">Ngày kết thúc: </span> <span id="lastyear"></span></p>
+
+            <p><a href="../homepage.html">Quay lại trang chủ</a></p>  
+            
+    </div>
+  
+  </div>
+</body>
+  <script src="../assets/js/pageVip/vip.js"></script>
+</html>
