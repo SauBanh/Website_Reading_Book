@@ -7,16 +7,33 @@ const multer = require('multer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     //can phan biet path cho book va path cho chap
-    const dir = 'src/public/b2c_data/' + req.body.bookname + req.user._id.toString();
-    fs.exists(dir, exist => {
-      if(!exist) {
-        return fs.mkdir(dir, err => cb(err, dir))
-      }
-      return cb(null, dir);
-    })
-  },
+    if(req.body.chapname !== undefined){
+      //chap
+      const dir = 'src/public/b2c_data/' + req.query.bookname + '-' + req.user._id.toString() + '/' + req.body.chapname;
+      fs.exists(dir, exist => {
+        if(!exist) {
+          return fs.mkdir(dir, err => cb(err, dir))
+        }
+        return cb(null, dir);
+      })
+    } else {
+      //book
+      const dir = 'src/public/b2c_data/' + req.body.bookname + req.user._id.toString();
+      fs.exists(dir, exist => {
+        if(!exist) {
+          return fs.mkdir(dir, err => cb(err, dir))
+        }
+        return cb(null, dir);
+      })
+  }},
   filename: function (req, file, cb) {
-    cb(null, req.user.username + file.originalname)
+    if(req.body.chapname !== undefined){
+      //chap
+      cb(null, req.user.username + file.originalname)
+    } else {
+      //book
+      cb(null, req.user.username + file.filename + file.originalname)
+    }
   }
 })
  
@@ -31,8 +48,8 @@ router.get('/photo', ctl.photo);
 
 router.post('/photo',upload.single('pic'), ctl.photoup);
 
-router.get('/file', ctl.file);
+router.get('/:bookslug/addchap', ctl.chap);
 
-router.post('/file',upload.array('myFile'), ctl.fileup);
+router.post('/:bookslug/addchap',upload.array('myFile'), ctl.chapup);
 
 module.exports = router;
