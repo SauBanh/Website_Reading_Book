@@ -645,13 +645,48 @@ i.fa-solid.fa-circle.notification_header_viewed{
     background-color: var(--background-page);
 }
 
-.category{
-    background-color: #fff;
-    /* width: 100%; */
+.container_category{
+    background-color: #232222;
+    width: 100%;
+    border: 1px solid #393939;
+}
+
+.container_list_category{
+    padding: 20px;
+    width: 100%;
+    list-style: none;
+}
+
+.container_item_category{
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.name_category{
+    font-size: 20px;
+}
+
+.check_box{
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.list_book_container{
+    background-color: aqua;
     height: 300px;
 }
 
-.book_content{
-    background-color: aqua;
-    height: 300px;
+.item_book_content_img{
+    padding-top: 120%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
