@@ -650,3 +650,8 @@ i.fa-solid.fa-circle.notification_header_viewed{
     /* width: 100%; */
     height: 300px;
 }
+
+.book_content{
+    background-color: aqua;
+    height: 300px;
+}
