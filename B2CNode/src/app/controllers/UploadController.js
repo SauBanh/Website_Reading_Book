@@ -20,7 +20,7 @@ class UploadController {
   async photoup(req, res) {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
-    //xoá khoảng trắng và dấu trong bookname và file
+    //xoá khoảng trắng và dấu trong bookname và file - chưa làm
     formData.bookname = req.body.bookname + '_' + req.user._id.toString();
     formData.pic = '/b2c_data/' + req.body.bookname + req.user._id.toString() + "/" + req.user.username + req.file.originalname;
     formData.author = req.user.username;
@@ -28,7 +28,7 @@ class UploadController {
     const newBook = new book(formData);
     newBook.save();
     await sleep(500);
-    res.redirect('/upload/' + newBook.slug + '/addchap')
+    res.redirect('/upload/' + newBook.slug + '/addchap');
   }
 
   chap(req, res) {
@@ -39,10 +39,20 @@ class UploadController {
   }
 
   chapup(req, res) {
-    //xử lí adđ thông tin vào db ở đây
+    //xử lí add thông tin vào db ở đây
+    book.findOne({ bookslug: req.params.bookslug }, function(err, book) {
+      if(!book) { res.redirect('/?ko-co-sach'); }
+      const formData = req.body;
+      formData.bookid = book._id.toString();
+      const newChap = new chapter(formData);
+      req.files.forEach(element  =>{
+        var data = { 'link': element.originalname }
+        newChap.chaplinks.push(data);
+      });
+      newChap.save();
+    })
     res.redirect('/');
   }
-
 }
 
 function sleep(ms) {
