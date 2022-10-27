@@ -35,10 +35,6 @@
     .header_content{
         justify-content: space-evenly;
     }
+
     
-    .category{
-        background-color: #fff;
-        /* width: 100%; */
-        height: 300px;
-    }
 }
