@@ -2,7 +2,10 @@
         <div class="test"></div>
         <header class="header">
             <div class="grid wide header_content">
-                <div class="logo_header center"><a href="#" class="link">B2C</a></div>
+                <div class="header_content">
+                <div class="logo_header center">
+                    <a href="#" class="link"> <img class="img_logo" src="/img/logo.png" alt=""></a>
+                </div>
                 <div class="search_header center hide_on_mobile">
                     <div class="block_input">
                         <i class="fa-solid fa-magnifying-glass search_header_icon"></i>
@@ -30,7 +33,7 @@
                             <ul class="list_notify_header">
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -43,7 +46,7 @@
                                 </li>
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -56,7 +59,7 @@
                                 </li>
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -69,7 +72,7 @@
                                 </li>
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -82,7 +85,7 @@
                                 </li>
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -95,7 +98,7 @@
                                 </li>
                                 <li class="item_notify_header">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -108,7 +111,7 @@
                                 </li>
                                 <li class="item_notify_header item_notify_header_viewed">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -121,7 +124,7 @@
                                 </li>
                                 <li class="item_notify_header item_notify_header_viewed">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -134,7 +137,7 @@
                                 </li>
                                 <li class="item_notify_header item_notify_header_viewed">
                                     <a href="#" class="link_item_notify_header">
-                                        <img class="img_item_notify_header" src="./assets/img/avata.jpg" alt="">
+                                        <img class="img_item_notify_header" src="/img/avata.jpg" alt="">
                                         <div class="content_item_notify_header">
                                             <h4 class="namebook_content_item_notify_header">Tên Sách</h4>
                                             <div class="status_box">
@@ -158,7 +161,7 @@
                                         {{session.username}}
                                     </a></li>
                                 {{else}}
-                                    <a class="link_box_info_user name_account" href="/auth/login">Đăng nhập</a>
+                                    <li class="item_box_info_user"><a class="link_box_info_user name_account" href="/auth/login">Đăng nhập</a></li>
                                 {{/if}}
                                 <li class="item_box_info_user"><a href="#" class="link_box_info_user">Truyện của tôi</a></li>
                                 <li class="item_box_info_user"><a href="/auth/logout" class="link_box_info_user">Đăng xuất</a></li>
@@ -166,21 +169,28 @@
                         </div>
                     </div>
                     <div class="user_header_mobile">
-                        <img class="user_header_img_mobile" src="./assets/img/avata.jpg">
+                        <img class="user_header_img_mobile" src="/img/avata.jpg">
                         <div class="box_notify_mobile ">
                             <ul class="box_notify_mobile_list">
-                                <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Tài khoản</a></li>
+                                {{#if session}}
+                                    <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">
+                                        {{session.username}}
+                                    </a></li>
+                                {{else}}
+                                <li class="box_notify_mobile_item"><a href="/auth/login" class="box_notify_mobile_link">Đăng nhập</a></li>
+                                {{/if}}
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Sách của tôi</a></li>
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Sách đang theo dõi</a></li>
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Vip</a></li>
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Thể loại</a></li>
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Tìm sách</a></li>
                                 <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Lịch sử</a></li>
-                                <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Đăng xuất</a></li>
+                                <li class="box_notify_mobile_item"><a href="/auth/logout" class="box_notify_mobile_link">Đăng xuất</a></li>
                             </ul>
                             <div class="close_box_notify_mobile"><i class="fa-sharp fa-solid fa-circle-xmark icon_close"></i></div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>            
         </header>
