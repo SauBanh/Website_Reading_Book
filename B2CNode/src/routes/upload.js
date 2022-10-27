@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     //can phan biet path cho book va path cho chap
     if(req.body.chapname !== undefined){
       //chap
-      const dir = 'src/public/b2c_data/' + req.query.bookname + '-' + req.user._id.toString() + '/' + req.body.chapname;
+      const dir = 'src/public/b2c_data/' + req.params.bookslug + '/' + req.body.chapname;
       fs.exists(dir, exist => {
         if(!exist) {
           return fs.mkdir(dir, err => cb(err, dir))
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
       })
     } else {
       //book
-      const dir = 'src/public/b2c_data/' + req.body.bookname + req.user._id.toString();
+      const dir = 'src/public/b2c_data/' + req.body.bookname + '_' + req.user._id.toString();
       fs.exists(dir, exist => {
         if(!exist) {
           return fs.mkdir(dir, err => cb(err, dir))
@@ -37,7 +37,7 @@ const storage = multer.diskStorage({
   }
 })
  
-const upload = multer({ storage: storage })
+const upload = multer({ storage })
 
 const ctl = require('../app/controllers/UploadController');
 const { exists } = require('../app/models/User');
