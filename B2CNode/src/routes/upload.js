@@ -29,10 +29,10 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     if(req.body.chapname !== undefined){
       //chap
-      cb(null, req.user.username + file.originalname)
+      cb(null, req.user._id.toString() + file.originalname)
     } else {
       //book
-      cb(null, req.user.username + file.filename + file.originalname)
+      cb(null, req.user._id.toString() + file.filename + file.originalname)
     }
   }
 })
