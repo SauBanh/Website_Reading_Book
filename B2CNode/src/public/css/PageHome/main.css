@@ -645,3 +645,8 @@ i.fa-solid.fa-circle.notification_header_viewed{
     background-color: var(--background-page);
 }
 
+.category{
+    background-color: #fff;
+    /* width: 100%; */
+    height: 300px;
+}
