@@ -20,7 +20,8 @@ class UploadController {
   async photoup(req, res) {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
-    formData.bookname = req.body.bookname + '-' + req.user._id.toString();
+    //xoá khoảng trắng và dấu trong bookname và file
+    formData.bookname = req.body.bookname + '_' + req.user._id.toString();
     formData.pic = '/b2c_data/' + req.body.bookname + req.user._id.toString() + "/" + req.user.username + req.file.originalname;
     formData.author = req.user.username;
     formData.email = req.user.email;
@@ -32,8 +33,7 @@ class UploadController {
 
   chap(req, res) {
     if (req.isAuthenticated()) {
-      console.log(req.params.bookslug);
-      res.render('uploadChaps');  
+      res.render('uploadChaps', {name: req.params.bookslug});  
     } else
     res.redirect('/auth/login');
   }
