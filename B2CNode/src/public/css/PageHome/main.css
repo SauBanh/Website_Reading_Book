@@ -641,7 +641,6 @@ i.fa-solid.fa-circle.notification_header_viewed{
 
 .container{
     padding: 80px 0;
-    height: 500px;
     background-color: var(--background-page);
 }
 
@@ -678,8 +677,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 }
 
 .list_book_container{
-    background-color: aqua;
-    height: 300px;
+    /* background-color: aqua; */
 }
 
 .item_book_content_img{
@@ -689,4 +687,5 @@ i.fa-solid.fa-circle.notification_header_viewed{
     background-position: center;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+    margin-top: 10px;
 }
