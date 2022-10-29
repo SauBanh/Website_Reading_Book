@@ -12,66 +12,42 @@ body {
   }
   
   .col-1 {
-    padding: 0px 10px ;
-    flex: 20%;
-    
+    padding: 20px 10px 0px 10px ;
+    flex: 10%;
+    color: #f4f804;
   }
   .col-2 {
     padding: 20px 10px 0px 10px;
-    flex: 20%;
-    
+    flex: 15%;
+    align-items: center;
   }
   .col-3 {
     padding: 20px 10px 0px 10px;
-    flex: 10%;
-    
+    flex: 14%;
+    align-items: center;
   }
   .col-4 {
-    padding: 60px 10px 0px 10px;
-    flex: 11%;
-    
+    padding: 0px 10px 0px 10px;
+    flex: 30%;
+    align-items: center;
   }
   .col-5 {
     padding: 20px 10px 0px 10px;
-    width: 30%;
-    
+    flex: 15%;
+    align-items: center;
   }
   .col-6 {
     padding: 20px 10px 0px 10px;
-    width: 9%;
+    flex: 10%;
     align-items: center;
   }
-  .col-1 img{
-    width: 200px;
-    height: auto;
-  }
+ 
   .col-6_btn{
     align-items: center;
-    margin-top: 20px;
-    display: none;
+    margin-top: 5px;
+   
   }
-  .col-70 {
-    padding: 20px 10px 0px 10px;
-    flex: 70%;
-    
-  }
-  .col-8 {
-    padding: 40px 0px 0px 10px;
-    flex: 7%;
-    text-align: center;
-    align-items: center;
-  }
-  .col-7 {
-    padding: 40px 10px 0px 0px;
-    flex: 7%;
-    text-align: center;
-    align-items: center;
-  }
-  .col-10 {
-    padding: 20px 10px 0px 10px;
-    flex: 10%;
-    
-  }
+  
   .payment {
     padding: 5px 20px 15px 20px;
     border-radius: 15px;
@@ -80,7 +56,7 @@ body {
   }
   .payment_box {
     background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
+    padding: 0px 20px 0px 20px;
     border: 1px solid lightgrey;
     margin: 20px 20px 20px 20px;
     background: #434141;
@@ -98,12 +74,36 @@ body {
   
   .payment_header{
     background-color: #f2f2f2;
-    padding: 15px 20px 5px 20px;
+    padding: 0px 20px 0px 20px;
     border: 1px solid #fa8d8d;
-    margin: 40px 20px 0px 20px;
+    margin: 20px 20px 0px 20px;
     background: #5c5959;
-  
+    
   }
+  .payment_logo{
+    padding: 15px 20px 5px 20px;
+    border-bottom: 1px solid #f4f804;
+    border-top: 1px solid #f4f804;
+    margin: 5px 20px 0px 20px;
+    text-align: center;
+    background-color: #1b1f20;
+  }
+  .payment_logo_t{
+    padding: 15px 20px 5px 20px;
+    margin: 40px 20px 0px 20px;
+    background-color: #f8e117;
+  }
+  .payment_logo_b{
+    padding: 15px 20px 5px 20px;
+    margin: 5px 20px 0px 20px;
+    background-color: #f8e117;
+  }
+  .payment_logo img{
+    width: 150px;
+    height: auto;
+
+  }
+  .popup_failed_content a,
   .btn, .popup_content a{
     background-color: #2e2d2d;
     color: white;
@@ -115,11 +115,13 @@ body {
     font-size: 17px;
     text-decoration: none;
   }
+  .popup_failed_content a:hover,
   .popup_content a:hover,
   .btn:hover {
-    border: 1px solid #ff0303;
-    background-color: #434141;
+    
+    background-color: #c0c301;
     text-decoration: none;
+    color: #000;
   }
   
  
@@ -134,37 +136,9 @@ body {
     list-style: none;
   }
   /* css dropdown */
-  .dropdown-container {
-    display: none;
-    background-color: #262626;
-    padding-left: 8px;
-    border-radius: 15px;
-    border:  1px solid lightgrey ;
-  }
   
-  .fa-caret-down {
-    float: right;
-    padding-right: 8px;
-  }
-  .dropdown-container a, .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    border: none;
-    background: #242121;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-    border-radius: 15px;
-  }
-  .dropdown-btn{
-    position:static;
-  }
-
   /* css pop up */
-
+.popup_failed,
 .popup {
   display: none; 
   position: fixed; 
@@ -178,13 +152,15 @@ body {
   background-color: rgba(0,0,0,0.4); 
 }
 
-
 .popup_content {
   background-color: #242121;
   margin: auto;
-  padding: 20px;
   border: 1px solid #81ed04;
   width: 60%;
+  color: #81ed04;
+  text-align: center;
+  line-height: 40px;
+  padding: 40px;
 }
 
 .close {
@@ -196,24 +172,52 @@ body {
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #81ed04;
   text-decoration: none;
   cursor: pointer;
 }
-.popup_content  {
+
+.popup_content i {
+  font-size: 120px;
   color: #81ed04;
+}
+
+#now,
+#lastyear{
+  color: #fff;
+}
+
+/* css pop up failed */
+
+.popup_failed_content{
+  background-color: #242121;
+  margin: auto;
+  border: 1px solid #ff7070;
+  width: 60%;
+  color: #ff7070;
   text-align: center;
   line-height: 40px;
   padding: 40px;
 }
-.popup_content i {
-  font-size: 120px;
-  color: #81ed04;
-  
+
+.close_failed {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-#now,
-#lastyear{
-  color: #fff;
+
+
+.close_failed:hover,
+.close_failed:focus{
+  color: #ff7070;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup_failed_content i {
+  font-size: 120px;
+  color: #ff7070;
 }
   /*  responsiveness */
   @media screen and (max-height: 450px) {
