@@ -137,4 +137,4 @@ route(app);
 // };
 
 app.listen(port, () => console.log(`Example app ${port}`));
-//https.createServer({options}, app).listen(port);
+//https.createServer({options}, app).listen(port, () => console.log(`Example app ${port}`));

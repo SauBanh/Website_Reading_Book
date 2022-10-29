@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
       cb(null, req.user._id.toString() + file.originalname)
     } else {
       //book
-      cb(null, req.user._id.toString() + file.filename + file.originalname)
+      cb(null, req.user._id.toString() + file.originalname)
     }
   }
 })
