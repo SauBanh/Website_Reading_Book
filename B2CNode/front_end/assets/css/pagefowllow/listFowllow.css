@@ -1,0 +1,82 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 17px;
+    padding: 8px;
+    background-size: cover;
+    background: #242121;
+    color: #ffffff;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+.col-1 {
+    padding: 20px 10px 0px 10px ;
+    flex: 10%;
+    color: #f4f804;
+  }
+  .col-2 {
+    padding: 20px 10px 0px 10px;
+    flex: 15%;
+    align-items: center;
+  }
+  .col-3 {
+    padding: 20px 10px 0px 10px;
+    flex: 14%;
+    align-items: center;
+  }
+  .col-4 {
+    padding: 0px 10px 0px 10px;
+    flex: 30%;
+    align-items: center;
+  }
+  .col-5 {
+    padding: 20px 10px 0px 10px;
+    flex: 15%;
+    align-items: center;
+  }
+  .col-6 {
+    padding: 20px 10px 0px 10px;
+    flex: 10%;
+    align-items: center;
+  }
+ 
+  .col-6_btn{
+    align-items: center;
+    margin-top: 5px;
+   
+  }
+  
+
+  .payment_box {
+    background-color: #f2f2f2;
+    padding: 0px 20px 0px 20px;
+    border: 1px solid lightgrey;
+    margin: 20px 20px 20px 20px;
+    background: #434141;
+  }
+  .payment_box_row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .btn{
+    background-color: #2e2d2d;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    
+    background-color: #c0c301;
+    text-decoration: none;
+    color: #000;
+  }
