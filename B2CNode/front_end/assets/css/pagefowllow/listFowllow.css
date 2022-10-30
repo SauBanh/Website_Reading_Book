@@ -11,52 +11,49 @@ body {
     box-sizing: border-box;
   }
   
-.col-1 {
-    padding: 20px 10px 0px 10px ;
-    flex: 10%;
-    color: #f4f804;
+  .col-1 {
+    padding: 20px 20px 20px 20px ;
+  }
+  .col-1 img{
+
+    height: auto;
+    width: 150px;
   }
   .col-2 {
-    padding: 20px 10px 0px 10px;
-    flex: 15%;
-    align-items: center;
+    padding: 20px 10px 20px 10px;
+    width: 65%;
+    scroll-behavior: smooth;
   }
+  .col-2 p{
+    overflow:auto;
+  }
+
   .col-3 {
-    padding: 20px 10px 0px 10px;
-    flex: 14%;
-    align-items: center;
-  }
-  .col-4 {
-    padding: 0px 10px 0px 10px;
-    flex: 30%;
-    align-items: center;
-  }
-  .col-5 {
-    padding: 20px 10px 0px 10px;
-    flex: 15%;
-    align-items: center;
-  }
-  .col-6 {
-    padding: 20px 10px 0px 10px;
-    flex: 10%;
+    padding: 70px 50px 0px 50px;
+    width: 18%;
     align-items: center;
   }
  
-  .col-6_btn{
+  .col-3_btn{
     align-items: center;
     margin-top: 5px;
    
   }
-  
+  .listFowllow {
+    padding: 5px 20px 15px 20px;
+    border-radius: 15px;
+    margin: 40px 80px 80px 80px;
+    background: #434141;
+  }
 
-  .payment_box {
+  .listFowllow_box {
     background-color: #f2f2f2;
     padding: 0px 20px 0px 20px;
     border: 1px solid lightgrey;
     margin: 20px 20px 20px 20px;
     background: #434141;
   }
-  .payment_box_row {
+  .listFowllow_box_row {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -16px;
