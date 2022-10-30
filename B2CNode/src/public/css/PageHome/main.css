@@ -303,6 +303,11 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+.favourite_header a,
+.checkvip_header a{
+    color: #E7E2E2;
+}
+
 .notification_header_active_js{
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -788,6 +793,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 .item_book_read_now{
     font-size: 15px;
     font-weight: 600;
+    color: #000000c4;
 }
 
 .item_book_read_now:hover{
@@ -798,6 +804,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 .item_book_view{
     font-size: 14px;
     user-select: none;
+    color: #000000c4;
 }
 
 .item_book_icon_follow{
