@@ -10,16 +10,14 @@
     
     <div id="wrapper">
 
-        <form id="form-login" action="" method="post" name="form" class="login_form" onsubmit="return validator()">
+        <form id="form-login" action="" method="post" name="form"  onsubmit="return validator_login()">
             <h1 class="form-heading" >LOGIN</h1>
+            
             <div class="form-group">
                 <i class="fa-solid fa-user"></i>
                 <input type="text" autocomplete="off" class="form-input" id="userName" placeholder="Username" name="user"> 
             </div>
-
             <div id="error_user">Vui lòng nhập tên đăng nhập</div>
-
-
 
             <div class="form-group">
                 <i class="fa-solid fa-key"></i>
@@ -28,13 +26,20 @@
                     <i class="fa-regular fa-eye-slash toggle"></i>
                 </div>
             </div>
-
             <div id="error_password">Vui lòng nhập mật khẩu</div>
             <i class="toggle"></i>
- 
+            <i class="toggle"></i>
+
             <input type="submit" value="SIGNIN"class="form-submit">
+            <div id="f-g_text">Hoặc đăng nhập với: </div>
+            <div class="f-g">  
+                <a id="facebook" href="#"><img src="../assets/img/PageLogin/Facebook_logo.png"  alt=""></a>
+                <a id="google" href="#"> <img src="../assets/img/PageLogin/google_logo.png"  alt=""> </a>
+            </div>
+            
+
             <p><div class="text-center" style="color: aliceblue;">
-            Chưa có tài khoản? <a href="./register.html" >signin</a>
+            Chưa có tài khoản? <a href="./register.html" >SIGN IN</a>
             </div></p>           
         </form>
         

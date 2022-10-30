@@ -1,22 +1,10 @@
-// js dropdown
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-}
 //js popup
 var mypopup = document.getElementById("mypopup");
 var btn = document.getElementById("myBtn");
 var Close = document.getElementsByClassName("close")[0];
+
+
 
 btn.onclick = function() {
   mypopup.style.display = "block";
@@ -24,12 +12,28 @@ btn.onclick = function() {
 
 Close.onclick = function() {
   mypopup.style.display = "none";
+  mypopup_failed.style.display = "none";
+}
+// popup failed
+
+var mypopup_failed = document.getElementById("mypopup_failed");
+var myBtn_failed = document.getElementById("myBtn_failed");
+var close_failed = document.getElementsByClassName("close_failed")[0];
+
+myBtn_failed.onclick = function() {
+  mypopup_failed.style.display = "block";
+}
+close_failed.onclick = function() {
+  mypopup_failed.style.display = "none";
 }
 
 window.onclick = function(event) {
   if (event.target == mypopup) {
     mypopup.style.display = "none";
   }
+  if (event.target == mypopup_failed) {
+    mypopup_failed.style.display = "none";
+  }  
 }
 //js
 
