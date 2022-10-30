@@ -97,7 +97,7 @@ function verify(accessToken, refreshToken, profile, done) {
 passport.use(new GoogleStrategy({
   clientID: '737651400824-5cp9pabdio1sh6l8e0nqmsphccdl5uek.apps.googleusercontent.com',
   clientSecret: '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',
-  callbackURL: 'https://b2cbook.herokuapp.com/auth/login/google/callback',
+  callbackURL: 'http://localhost:8000/auth/login/google/callback',
 },
 function verify(accessToken, profile, done) {
   process.nextTick(function () {

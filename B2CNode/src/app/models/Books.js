@@ -10,6 +10,7 @@ const book = new Schema({
     bookname: {type: String, default: null}, 
     pic: {type:String, default: null}, 
     slug: {type:String, slug: 'bookname'}, 
+    categories: {type: Array, default: []}
 },  {
     timestamps: true,
 });
