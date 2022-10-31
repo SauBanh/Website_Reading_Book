@@ -1,3 +1,21 @@
+// popup verification
+var mypopup_verification = document.getElementById("mypopup_verification");
+var myBtn_verification = document.getElementById("myBtn_verification");
+var close_verification = document.getElementsByClassName("close_verification")[0];
+
+myBtn_verification.onclick = function() {
+  mypopup_verification.style.display = "block";
+}
+close_verification.onclick = function() {
+  mypopup_verification.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == mypopup_verification) {
+    mypopup_verification.style.display = "none";
+  }
+ 
+}
 
 const toggle = document.getElementsByClassName("toggle"),
 
@@ -145,5 +163,3 @@ function confirm_veryfy(){
     return true;
   }
 }
-
-
