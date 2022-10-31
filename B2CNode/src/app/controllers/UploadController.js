@@ -21,12 +21,12 @@ class UploadController {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
     //xoá khoảng trắng và dấu trong bookname và file - dang làm
-    formData.bookname = removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString();
-    formData.pic = '/b2c_data/' + req.body.bookname + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
+    formData.pic = '/b2c_data/' + removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString() + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
     formData.email = req.user.email;
+    formData.slug = removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString();
     const newBook = new book(formData);
-    const cater = ["saubanhancut", "khong an cut dau", "ănc ặ c"];
+    const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
     newBook.categories = cater;
     newBook.save();
     await sleep(500);

@@ -1,8 +1,12 @@
+const Book = require('../models/Books')
 
 class HomeController {
+
   //[get] -> home
-  index(req, res) { 
-    res.render('home', {session: req.user});
+  async index(req, res) { 
+    var books = await Book.find({});
+    books = books.map(book => book.toObject());
+    res.render('home', {session: req.user, books});
   }
 
 }
