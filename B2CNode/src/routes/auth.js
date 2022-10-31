@@ -51,6 +51,10 @@ router.get('/login/google/callback', passport.authenticate('google', {
 
 router.get('/signup', ctl.signupr);
 
+router.get('/confirm', ctl.emailconfirmcb);
+
+router.post('/confirm', ctl.emailconfirm);
+
 router.post('/signup', ctl.signup);
 
 router.get('/logout', ctl.logout);
