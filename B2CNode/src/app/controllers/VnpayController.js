@@ -117,7 +117,7 @@ class VnpayController{
                 const today = new Date(Date.now());
                 const vipday = new Date(user.vipexpire);
                 if(user.vipexpire < today) {
-                    vipday.setDate(today.getMonth() + months);
+                    vipday.setMonth(today.getMonth() + months);
                 } else {
                     vipday.setMonth(user.vipexpire.getMonth() + months);
                 }
