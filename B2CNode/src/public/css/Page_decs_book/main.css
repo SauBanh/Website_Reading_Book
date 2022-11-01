@@ -1,3 +1,7 @@
+.book_container{
+    padding-bottom: 50px;
+}
+
 .book_header{
     display: flex;
 }

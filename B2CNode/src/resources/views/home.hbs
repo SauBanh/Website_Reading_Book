@@ -161,8 +161,8 @@
                         {{/each}}
                     </div>
                 </div>
-                <ul class="pagination home_list_book_pagination">
-                    <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angles-left"></i></a></li>
+                <ul id="book_pagination" class="pagination home_list_book_pagination">
+                    {{!-- <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angles-left"></i></a></li>
                     <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angle-left"></i></a></li>
                     <li class="pagination-item"><a href="/?page=1" class="pagination-item_link">1</a></li>
                     <li class="pagination-item pagination-item-active"><a href="/?page=2" class="pagination-item_link">2</a></li>
@@ -170,9 +170,9 @@
                     <li class="pagination-item"><a href="#" class="pagination-item_link">4</a></li>
                     <li class="pagination-item"><a href="#" class="pagination-item_link">5</a></li>
                     <li class="pagination-item"><a href="#" class="pagination-item_link">...</a></li>
-                    <li class="pagination-item"><a href="#" class="pagination-item_link">19</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-item_link"></a></li>
                     <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angle-right"></i></a></li>
-                    <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angles-right"></i></a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-item_link"><i class="fa-solid fa-angles-right"></i></a></li> --}}
                 </ul>
             </div>
         </div>
@@ -181,7 +181,13 @@
 <script src="/js/PageHome/slider.js"></script>
 
 <script>
-    
+    var length = Number({{lastpage}});
+    var list = document.getElementById('book_pagination')
+    console.log(list)
+    for(var i = 1; i <= length; i++){
+        var html = `<li class="pagination-item"><a href="/?page=${i}" class="pagination-item_link">${i}</a></li>`
+        list.insertAdjacentHTML('beforeend', html)
+    }
 </script>
 {{!-- <form action="/order" method="get">
     <button type="submit">Gio hang</button>
