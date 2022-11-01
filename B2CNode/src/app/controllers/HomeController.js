@@ -7,7 +7,7 @@ class HomeController {
 
     var books = await Book.find({});
     const numbooks = Object.keys(books).length;
-    const elmEachPage = 3;
+    const elmEachPage = 15;
     const lastpage = ~~((numbooks-1)/elmEachPage) + 1;
 
     var pagenow;
@@ -17,16 +17,18 @@ class HomeController {
       pagenow = req.query.page;
     }
 
+    if(req.query.page > lastpage) { pagenow = lastpage };
+
     var lstbook = new Array();
     if(pagenow == lastpage){
 
-      for (let index = (pagenow - 1)*elmEachPage; index < numbooks; index++) {
+      for (let index = ((numbooks - 1) - (pagenow - 1)*elmEachPage); index >= 0; index--) {
           lstbook.push(books[index]);
         }
 
     } else {
 
-      for (let index = (pagenow - 1)*elmEachPage; index < pagenow*elmEachPage; index++) {
+      for (let index = ((numbooks - 1) - (pagenow - 1)*elmEachPage); index > ((numbooks - 1) - pagenow*elmEachPage); index--) {
           lstbook.push(books[index]);
         }
     }
