@@ -115,10 +115,12 @@ class VnpayController{
                 }
                 const user = await User.findById(usersecc._id);
                 const today = new Date(Date.now());
-                const vipday = new Date(user.vipexpire);
+                var vipday;
                 if(user.vipexpire < today) {
+                    vipday = new Date(Date.now());
                     vipday.setMonth(today.getMonth() + months);
                 } else {
+                    vipday = new Date(user.vipexpire);
                     vipday.setMonth(user.vipexpire.getMonth() + months);
                 }
                 user.vipexpire = vipday;
