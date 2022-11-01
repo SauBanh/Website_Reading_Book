@@ -7,7 +7,8 @@ const book = new Schema({
     bookname: {type: String, default: null}, 
     pic: {type:String, default: null}, 
     slug: {type:String, default: null}, 
-    categories: {type: Array, default: []}
+    categories: {type: Array, default: []},
+    decs: {type: String, default: null}
 },  {
     timestamps: true,
 });

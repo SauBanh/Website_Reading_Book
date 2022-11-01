@@ -1,27 +1,186 @@
 <div class="book_container">
     <div class="grid wide">
-        <div class="book_header">
-            <div class="box_img_book_header">
-                {{#if thisbook}}
-                    <img src="{{thisbook.pic}}">
-                {{/if}}
-            </div>
+        <div class="book_box">
+            <div class="book_header">
+                <div class="box_img_book_header">
+                    {{#if thisbook}}
+                        <img src="{{thisbook.pic}}">
+                    {{/if}}
+                </div>
 
-            <div class="book_header_info">
-                <span class="book_header_info_name">Tên sách</span>
-                <ul class="list_book_header_info">
-                    <li class="item_book_header_info"><i class="fa-solid fa-user"></i>Người đăng: Nguyễn Tuấn Anh đẹp trai</li>
-                    <li class="item_book_header_info"><i class="fa-solid fa-eye"></i>Lượt xem: 100</li>
-                    <li class="item_book_header_info"><i class="fa-solid fa-rss"></i>Tình trạng: Có 27 chap</li>
-                </ul>
-                <ul class="list_category_book_header">
-                    <li class="item_category_book_header">Action</li>
-                    <li class="item_category_book_header">Fantasy</li>
-                    <li class="item_category_book_header">Shounen</li>
-                    <li class="item_category_book_header">Supernatural</li>
-                    <li class="item_category_book_header">Manhua</li>
-                </ul>
+                <div class="book_header_info">
+                    <span class="book_header_info_name">Tên sách</span>
+                    <ul class="list_book_header_info">
+                        <li class="item_book_header_info"><i class="fa-solid fa-user"></i>Người đăng: Nguyễn Tuấn Anh đẹp trai</li>
+                        <li class="item_book_header_info"><i class="fa-solid fa-eye"></i>Lượt xem: 100 view</li>
+                        <li class="item_book_header_info"><i class="fa-solid fa-rss"></i>Tình trạng: Có 27 chap</li>
+                    </ul>
+                    <ul class="list_category_book_header">
+                        <li class="item_category_book_header">Action</li>
+                        <li class="item_category_book_header">Fantasy</li>
+                        <li class="item_category_book_header">Shounen</li>
+                        <li class="item_category_book_header">Supernatural</li>
+                        <li class="item_category_book_header">Manhua</li>
+                    </ul>
+                </div>
             </div>
+            <div class="book_desc_header">
+                <h3 class="book_header_title"><i class="fa-solid fa-circle-info"></i>Giới Thiệu</h3>
+                <p class="book_desc_header_p">
+                    Võ đạo đỉnh phong, là cô độc, là tịch mịch, là dài đằng đẵng cầu tác, là cao xử bất thắng hàn
+                    Phát triển trong nghịch cảnh, cầu sinh nơi tuyệt địa, bất khuất không buông tha, mới có thể có thể phá võ chi cực đạo.
+                    Lăng Tiêu các thí luyện đệ tử kiêm quét rác gã sai vặt Dương Khai ngẫu lấy được một bản vô tự hắc thư, từ nay về sau đạp vào dài đằng đẵng võ đạo.
+                </p>
+            </div>
+            <div class="book_chapter_header">
+                <h3 class="book_header_title"><i class="fa-solid fa-database"></i>Danh sách các chương</h3>
+                <ul class="box_list_chapter">
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 1</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 2</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 3</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 4</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 5</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 6</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 7</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 8</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 9</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 10</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 11</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 12</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 13</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 14</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 15</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 16</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 17</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 18</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 19</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 20</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 21</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 22</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 23</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                    <li class="item_chapter">
+                        <a href="#" class="item_link_chapter">
+                            <span class="number_chapter">Chương 24</span>
+                            <span class="date_create_chap">10/12/2022</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>  
         </div>
     </div>
 </div>
