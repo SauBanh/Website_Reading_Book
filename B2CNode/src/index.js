@@ -76,6 +76,7 @@ function verify(accessToken, refreshToken, profile, done) {
     User.findOne({ $or:[{email: (profile.emails && profile.emails[0]) ? profile.emails[0].value : '' }, {fbid: profile.id}] }, function(err, user) {
       if (err) { return done(err); }
       if (!user) { 
+        //new user
         const newuser = new User();
         newuser.fbid = profile.id;
         newuser.username = profile.displayName;
@@ -84,6 +85,7 @@ function verify(accessToken, refreshToken, profile, done) {
         return done(null, newuser);
       }
       else{
+        //old user
         user.fbid = profile.id;
         user.save();
         return done(null, user);
@@ -104,6 +106,7 @@ function verify(accessToken, profile, done) {
     User.findOne({email: profile.emails[0].value }, function(err, user) {
       if (err) { return done(err); }
       if (!user) { 
+        //new user
         const newuser = new User();
         newuser.ggid = profile.id;
         newuser.username = profile.displayName;
@@ -112,6 +115,7 @@ function verify(accessToken, profile, done) {
         return done(null, newuser);
       }
       else{
+        //old user
         user.ggid = profile.id;
         user.save();
         return done(null, user);

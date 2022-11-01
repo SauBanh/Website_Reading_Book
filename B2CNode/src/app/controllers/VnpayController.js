@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const buyHistory = require('../models/BuyHistory');
+var mysign = new String();
+var idcheck = new String();
 
 class VnpayController{
 
@@ -12,6 +14,8 @@ class VnpayController{
     // };
 
     create(req, res, next) {
+        mysign = makeid();
+        idcheck = mysign;
         var ipAddr = req.headers['x-forwarded-for'] ||
             req.connection.remoteAddress ||
             req.socket.remoteAddress ||
@@ -90,43 +94,48 @@ class VnpayController{
     
         if(secureHash === signed){
             if(vnp_Params['vnp_ResponseCode'] === '00'){
-                const fromQuery = req.query;
-                const usersecc = req.user;
-                fromQuery.username = usersecc.username;
-                fromQuery.email = usersecc.email;
-                const buyhistory = new buyHistory(fromQuery);
-                buyhistory.save();
-                var months = 0;
-                switch (req.query.vnp_Amount) {
-                    case '5000000':
-                        months = 1;
-                        break;
+                if(idcheck === mysign){
+                    const fromQuery = req.query;
+                    const usersecc = req.user;
+                    fromQuery.username = usersecc.username;
+                    fromQuery.email = usersecc.email;
+                    const buyhistory = new buyHistory(fromQuery);
+                    buyhistory.save();
+                    var months = 0;
+                    switch (req.query.vnp_Amount) {
+                        case '5000000':
+                            months = 1;
+                            break;
 
-                    case '15000000':
-                        months = 3;
-                        break;
+                        case '15000000':
+                            months = 3;
+                            break;
 
-                    case '30000000':
-                        months = 6;
-                        break;
+                        case '30000000':
+                            months = 6;
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+                    const user = await User.findById(usersecc._id);
+                    const today = new Date(Date.now());
+                    var vipday;
+                    if(user.vipexpire < today) {
+                        vipday = new Date(Date.now());
+                        vipday.setMonth(today.getMonth() + months);
+                    } else {
+                        vipday = new Date(user.vipexpire);
+                        vipday.setMonth(user.vipexpire.getMonth() + months);
+                    }
+
+                    user.vipexpire = vipday;
+                    req.user.vipexpire = vipday;
+                    user.save();
+                    mysign = null;
+
+                    res.render('success', {code: vnp_Params['vnp_ResponseCode'], info: 'Thanh toan thanh cong!'});
                 }
-                const user = await User.findById(usersecc._id);
-                const today = new Date(Date.now());
-                var vipday;
-                if(user.vipexpire < today) {
-                    vipday = new Date(Date.now());
-                    vipday.setMonth(today.getMonth() + months);
-                } else {
-                    vipday = new Date(user.vipexpire);
-                    vipday.setMonth(user.vipexpire.getMonth() + months);
-                }
-                user.vipexpire = vipday;
-                req.user.vipexpire = vipday;
-                user.save();
-                res.render('success', {code: vnp_Params['vnp_ResponseCode'], info: 'Thanh toan thanh cong!'});
             }
             else
                 res.render('success', {code: '97', info: 'Thanh toan khong thanh cong!'});
@@ -135,7 +144,7 @@ class VnpayController{
         }
     };
     
-    ipn (req, res, next) {
+    async ipn (req, res, next) {
         var vnp_Params = req.query;
         var secureHash = vnp_Params['vnp_SecureHash'];
     
@@ -155,6 +164,44 @@ class VnpayController{
             var orderId = vnp_Params['vnp_TxnRef'];
             var rspCode = vnp_Params['vnp_ResponseCode'];
             //Kiem tra du lieu co hop le khong, cap nhat trang thai don hang va gui ket qua cho VNPAY theo dinh dang duoi
+                    const fromQuery = req.query;
+                    const usersecc = req.user;
+                    fromQuery.username = usersecc.username;
+                    fromQuery.email = usersecc.email;
+                    const buyhistory = new buyHistory(fromQuery);
+                    buyhistory.save();
+                    var months = 0;
+                    switch (req.query.vnp_Amount) {
+                        case '5000000':
+                            months = 1;
+                            break;
+
+                        case '15000000':
+                            months = 3;
+                            break;
+
+                        case '30000000':
+                            months = 6;
+                            break;
+
+                        default:
+                            break;
+                    }
+                    const user = await User.findById(usersecc._id);
+                    const today = new Date(Date.now());
+                    var vipday;
+                    if(user.vipexpire < today) {
+                        vipday = new Date(Date.now());
+                        vipday.setMonth(today.getMonth() + months);
+                    } else {
+                        vipday = new Date(user.vipexpire);
+                        vipday.setMonth(user.vipexpire.getMonth() + months);
+                    }
+
+                    user.vipexpire = vipday;
+                    req.user.vipexpire = vipday;
+                    user.save();
+                    mysign == null;
             res.status(200).json({RspCode: '00', Message: 'success'})
         }
         else {
@@ -178,6 +225,16 @@ function sortObject(obj) {
         sorted[str[key]] = encodeURIComponent(obj[str[key]]).replace(/%20/g, "+");
     }
     return sorted;
+}
+
+function makeid() {
+    var result           = '';
+    var characters       = 'abcdefghjklmnouywz0123456789';
+    var charactersLength = 12;
+    for ( var i = 0; i < 6; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 module.exports = new VnpayController();
