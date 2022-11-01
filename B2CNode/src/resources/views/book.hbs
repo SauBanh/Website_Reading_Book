@@ -1,3 +1,27 @@
-{{#if thisbook}}
-<img src="{{thisbook.pic}}">
-{{/if}}
+<div class="book_container">
+    <div class="grid wide">
+        <div class="book_header">
+            <div class="box_img_book_header">
+                {{#if thisbook}}
+                    <img src="{{thisbook.pic}}">
+                {{/if}}
+            </div>
+
+            <div class="book_header_info">
+                <span class="book_header_info_name">Tên sách</span>
+                <ul class="list_book_header_info">
+                    <li class="item_book_header_info"><i class="fa-solid fa-user"></i>Người đăng: Nguyễn Tuấn Anh đẹp trai</li>
+                    <li class="item_book_header_info"><i class="fa-solid fa-eye"></i>Lượt xem: 100</li>
+                    <li class="item_book_header_info"><i class="fa-solid fa-book"></i>Số chap: 27</li>
+                </ul>
+                <ul class="list_category_book_header">
+                    <li class="item_category_book_header">Action</li>
+                    <li class="item_category_book_header">Fantasy</li>
+                    <li class="item_category_book_header">Shounen</li>
+                    <li class="item_category_book_header">Supernatural</li>
+                    <li class="item_category_book_header">Manhua</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

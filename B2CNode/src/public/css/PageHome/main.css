@@ -794,6 +794,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
     font-size: 15px;
     font-weight: 600;
     color: #000000c4;
+    text-decoration: none;
 }
 
 .item_book_read_now:hover{
