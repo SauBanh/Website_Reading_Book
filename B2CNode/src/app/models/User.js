@@ -7,7 +7,8 @@ const user = new Schema({
     hashpassword: {type: String, default: null},
     ggid: {type: String, default: null},
     fbid: {type: String, default: null},
-    vipexpire: {type: Date, default: Date.now()}
+    vipexpire: {type: Date, default: Date.now()},
+    active: {type: Boolean, default: true}
 },  {
     timestamps: true,
 });
