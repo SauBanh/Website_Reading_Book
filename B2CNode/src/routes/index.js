@@ -3,6 +3,7 @@ const pay = require('./vnpay');
 const authRouter = require('./auth');
 const upload = require('./upload');
 const adminload = require('./admin');
+const read = require('./read');
 
 function route(app) {
   app.use('/', newRouter);
@@ -14,6 +15,9 @@ function route(app) {
   app.use('/upload', upload);
   
   app.use('/admin', adminload);
+
+  app.use('/read', read);
+
 
 }
 

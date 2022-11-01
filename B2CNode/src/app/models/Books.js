@@ -1,15 +1,12 @@
 const mongoose = require('mongoose');
-const slug = require('mongoose-slug-generator')
 const Schema = mongoose.Schema;
-
-mongoose.plugin(slug);
 
 const book = new Schema({
     email: {type: String, default: null},
     author: {type: String, default: null},
     bookname: {type: String, default: null}, 
     pic: {type:String, default: null}, 
-    slug: {type:String, slug: 'bookname'}, 
+    slug: {type:String, default: null}, 
     categories: {type: Array, default: []}
 },  {
     timestamps: true,

@@ -1,15 +1,15 @@
-const { now } = require('mongoose');
+const User = require('../models/User');
 const buyHistory = require('../models/BuyHistory');
 
 class VnpayController{
 
-    maked (req, res, next) {   
-        var date = Date.now();
-        var dateFormat = require('dateformat');
+    // maked (req, res, next) {   
+    //     var date = Date.now();
+    //     var dateFormat = require('dateformat');
     
-        var desc = 'Thanh toan don hang thoi gian: ' + dateFormat(date, 'yyyymmddHHmmss');
-        res.render('/home', {title: 'Tạo mới đơn hàng', amount: 10000, description: desc})
-    };
+    //     var desc = 'Thanh toan don hang thoi gian: ' + dateFormat(date, 'yyyymmddHHmmss');
+    //     res.render('/home', {title: 'Tạo mới đơn hàng', amount: 10000, description: desc})
+    // };
 
     create(req, res, next) {
         var ipAddr = req.headers['x-forwarded-for'] ||
@@ -20,17 +20,17 @@ class VnpayController{
         var tmnCode = '3OKCBGET';
         var secretKey = 'DWYEYOENVIJZANMLNEDGDGDVIKPKULLE';
         var vnpUrl = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
-        var returnUrl = 'https://b2cbook.herokuapp.com/order/vnpay_return';
+        var returnUrl = 'http://localhost:8000/order/vnpay_return';
 
-        var date = Date.now();
+        var date = new Date(Date.now());
         var dateFormat = require('dateformat');
 
         var createDate = dateFormat(date, 'yyyymmddHHmmss');
         var orderId = dateFormat(date, 'HHmmss');
-        var amount = 1000000;
+        var amount = req.query.amount;
         var bankCode = '';
         
-        var orderInfo = 'Tra tien cho Cuongggg';
+        var orderInfo = req.query.title;
         var orderType = 'other';
         var locale = 'vn';
         if(locale === null || locale === ''){
@@ -49,7 +49,7 @@ class VnpayController{
         vnp_Params['vnp_OrderType'] = orderType;
         vnp_Params['vnp_Amount'] = amount * 100;
         vnp_Params['vnp_ReturnUrl'] = returnUrl;
-        vnp_Params['vnp_IpAddr'] = "42.113.108.48";
+        vnp_Params['vnp_IpAddr'] = ipAddr;
         vnp_Params['vnp_CreateDate'] = createDate;
         if(bankCode !== null && bankCode !== ''){
             vnp_Params['vnp_BankCode'] = bankCode;
@@ -69,7 +69,7 @@ class VnpayController{
         res.redirect(vnpUrl);
     };
 
-    return (req, res, next) {
+    async return (req, res, next) {
         var vnp_Params = req.query;
     
         var secureHash = vnp_Params['vnp_SecureHash'];
@@ -96,6 +96,36 @@ class VnpayController{
                 fromQuery.email = usersecc.email;
                 const buyhistory = new buyHistory(fromQuery);
                 buyhistory.save();
+                var months = 0;
+                switch (req.query.vnp_Amount) {
+                    case '5000000':
+                        months = 1;
+                        break;
+
+                    case '15000000':
+                        months = 3;
+                        break;
+
+                    case '30000000':
+                        months = 6;
+                        break;
+
+                    default:
+                        break;
+                }
+                const user = await User.findById(usersecc._id);
+                const today = new Date(Date.now());
+                var vipday;
+                if(user.vipexpire < today) {
+                    vipday = new Date(Date.now());
+                    vipday.setMonth(today.getMonth() + months);
+                } else {
+                    vipday = new Date(user.vipexpire);
+                    vipday.setMonth(user.vipexpire.getMonth() + months);
+                }
+                user.vipexpire = vipday;
+                req.user.vipexpire = vipday;
+                user.save();
                 res.render('success', {code: vnp_Params['vnp_ResponseCode'], info: 'Thanh toan thanh cong!'});
             }
             else
