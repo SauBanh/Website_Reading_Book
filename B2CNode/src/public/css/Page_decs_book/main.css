@@ -64,6 +64,19 @@
     border-radius: 5px;
 }
 
+.link_item_category_book_header{
+    text-decoration: none;
+    color: #fff;
+}
+
+.item_category_book_header:hover{
+    background-color: #fff;
+}
+
+.item_category_book_header:hover .link_item_category_book_header{
+    color: #000;
+}
+
 .book_desc_header{
     margin: 30px 0;
 }
@@ -135,9 +148,8 @@
 .item_link_chapter{
     display: flex;
     text-decoration: none;
-    color: #fff;
     justify-content: space-between;
-    
+    color: #fff;
 }
 
 /* responsive */
