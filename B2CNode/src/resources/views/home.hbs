@@ -182,12 +182,17 @@
 
 <script>
     var length = Number({{lastpage}});
-    var list = document.getElementById('book_pagination')
-    console.log(list)
+    var list = document.getElementById('book_pagination');
+    var currentPage = Number({{pagenow}});
+    console.log(currentPage)
     for(var i = 1; i <= length; i++){
-        var html = `<li class="pagination-item"><a href="/?page=${i}" class="pagination-item_link">${i}</a></li>`
+        var html = `<li class="pagination-item"><a href="/?page=${i}" class="pagination-item_link ${i}">${i}</a></li>`
+        if(i == currentPage){
+            html = `<li class="pagination-item pagination-item-active"><a href="/?page=${i}" class="pagination-item_link ${i}">${i}</a></li>`
+        }
         list.insertAdjacentHTML('beforeend', html)
     }
+
 </script>
 {{!-- <form action="/order" method="get">
     <button type="submit">Gio hang</button>

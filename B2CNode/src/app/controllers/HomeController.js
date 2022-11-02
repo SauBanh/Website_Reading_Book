@@ -7,7 +7,7 @@ class HomeController {
 
     var books = await Book.find({});
     const numbooks = Object.keys(books).length;
-    const elmEachPage = 1;
+    const elmEachPage = 5;
     const lastpage = ~~((numbooks-1)/elmEachPage) + 1;
 
     var pagenow;
@@ -34,7 +34,7 @@ class HomeController {
     }
 
     lstbook = lstbook.map(book => book.toObject());
-    res.render('home', {session: req.user, lstbook, lastpage}); 
+    res.render('home', {session: req.user, lstbook, lastpage, pagenow}); 
   }
 
 }
