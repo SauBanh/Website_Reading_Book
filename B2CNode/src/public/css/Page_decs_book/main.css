@@ -177,4 +177,8 @@
     .box_list_chapter{
         width: 100%;
     }
+
+    .book_header_info{
+        padding: 0 0 10px 0;
+    }
 }
