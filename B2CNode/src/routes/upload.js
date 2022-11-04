@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     if(req.body.chapname !== undefined){
       //chap
-      cb(null, req.user._id.toString() + removeVietnameseTones(file.originalname))
+      cb(null, removeVietnameseTones(file.originalname))
     } else {
       //book
       cb(null, req.user._id.toString() + removeVietnameseTones(file.originalname))

@@ -35,12 +35,14 @@
             <div class="book_chapter_header">
                 <h3 class="book_header_title"><i class="fa-solid fa-database"></i>Danh sách các chương</h3>
                 <ul class="box_list_chapter">
+                    {{#each lstchap}}
                     <li class="item_chapter">
-                        <a href="#" class="item_link_chapter">
-                            <span class="number_chapter">Chương 1</span>
-                            <span class="date_create_chap">10/12/2022</span>
+                        <a href="/read/{{chaplink}}" class="item_link_chapter">
+                            <span class="number_chapter">{{chapname}}</span>
+                            <span class="date_create_chap">{{createdAt}}</span>
                         </a>
                     </li>
+                    {{/each}}
                     <li class="item_chapter">
                         <a href="#" class="item_link_chapter">
                             <span class="number_chapter">Chương 2</span>

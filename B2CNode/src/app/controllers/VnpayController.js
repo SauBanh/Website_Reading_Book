@@ -145,6 +145,7 @@ class VnpayController{
     };
     
     async ipn (req, res, next) {
+        
         var vnp_Params = req.query;
         var secureHash = vnp_Params['vnp_SecureHash'];
     
@@ -164,44 +165,44 @@ class VnpayController{
             var orderId = vnp_Params['vnp_TxnRef'];
             var rspCode = vnp_Params['vnp_ResponseCode'];
             //Kiem tra du lieu co hop le khong, cap nhat trang thai don hang va gui ket qua cho VNPAY theo dinh dang duoi
-                    const fromQuery = req.query;
-                    const usersecc = req.user;
-                    fromQuery.username = usersecc.username;
-                    fromQuery.email = usersecc.email;
-                    const buyhistory = new buyHistory(fromQuery);
-                    buyhistory.save();
-                    var months = 0;
-                    switch (req.query.vnp_Amount) {
-                        case '5000000':
-                            months = 1;
-                            break;
+                    // const fromQuery = req.query;
+                    // const usersecc = req.user;
+                    // fromQuery.username = usersecc.username;
+                    // fromQuery.email = usersecc.email;
+                    // const buyhistory = new buyHistory(fromQuery);
+                    // buyhistory.save();
+                    // var months = 0;
+                    // switch (req.query.vnp_Amount) {
+                    //     case '5000000':
+                    //         months = 1;
+                    //         break;
 
-                        case '15000000':
-                            months = 3;
-                            break;
+                    //     case '15000000':
+                    //         months = 3;
+                    //         break;
 
-                        case '30000000':
-                            months = 6;
-                            break;
+                    //     case '30000000':
+                    //         months = 6;
+                    //         break;
 
-                        default:
-                            break;
-                    }
-                    const user = await User.findById(usersecc._id);
-                    const today = new Date(Date.now());
-                    var vipday;
-                    if(user.vipexpire < today) {
-                        vipday = new Date(Date.now());
-                        vipday.setMonth(today.getMonth() + months);
-                    } else {
-                        vipday = new Date(user.vipexpire);
-                        vipday.setMonth(user.vipexpire.getMonth() + months);
-                    }
+                    //     default:
+                    //         break;
+                    // }
+                    // const user = await User.findById(usersecc._id);
+                    // const today = new Date(Date.now());
+                    // var vipday;
+                    // if(user.vipexpire < today) {
+                    //     vipday = new Date(Date.now());
+                    //     vipday.setMonth(today.getMonth() + months);
+                    // } else {
+                    //     vipday = new Date(user.vipexpire);
+                    //     vipday.setMonth(user.vipexpire.getMonth() + months);
+                    // }
 
-                    user.vipexpire = vipday;
-                    req.user.vipexpire = vipday;
-                    user.save();
-                    mysign == null;
+                    // user.vipexpire = vipday;
+                    // req.user.vipexpire = vipday;
+                    // user.save();
+                    // mysign == null;
             res.status(200).json({RspCode: '00', Message: 'success'})
         }
         else {
