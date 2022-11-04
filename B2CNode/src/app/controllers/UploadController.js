@@ -20,7 +20,7 @@ class UploadController {
   async photoup(req, res) {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
-    //xoá khoảng trắng và dấu trong bookname và file - dang làm
+    //xoá khoảng trắng và dấu trong bookname và file - xong
     formData.pic = '/b2c_data/' + removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString() + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
     formData.email = req.user.email;
@@ -29,7 +29,7 @@ class UploadController {
     const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
     newBook.categories = cater;
     newBook.save();
-    await sleep(500);
+    await sleep(200);
     res.redirect('/upload/' + newBook.slug + '/addchap');
   }
 
@@ -42,15 +42,17 @@ class UploadController {
 
   chapup(req, res) {
     //xử lí add thông tin vào db ở đây
-    book.findOne({ bookslug: req.params.bookslug }, function(err, book) {
+    book.findOne({ slug: req.params.bookslug }, function(err, book) {
       if(!book) { res.redirect('/?ko-co-sach'); }
       const formData = req.body;
       formData.bookid = book._id.toString();
+      formData.chaplink = book.slug + "/" + removeVietnameseTones(req.body.chapname);
+      formData.chapslug = removeVietnameseTones(req.body.chapname);
       const newChap = new chapter(formData);
       //link chua xong
       req.files.forEach(element  =>{
-        var data = { 'link': removeVietnameseTones(element.originalname) }
-        newChap.chaplinks.push(data);
+        var data = new String( formData.chaplink + "/" + removeVietnameseTones(element.originalname));
+        newChap.imglinks.push(data);
       });
       newChap.save();
     })
