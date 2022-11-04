@@ -1,8 +1,13 @@
-
-<form action="/upload/photo" enctype="multipart/form-data" method="POST"> 
-  <i class="fa-solid fa-user"></i>
-  <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
-  <i class="fa-solid fa-user"></i>
-  <input type="file" name="pic" accept="image/*" />
-  <input type="submit" value="Upload Photo"/>
-</form>
+<div class="container_upload_book">
+  <div class="grid wide">
+    <div class="container_upload_book_box">
+      <form action="/upload/photo" enctype="multipart/form-data" method="POST"> 
+        <i class="fa-solid fa-user"></i>
+        <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
+        <i class="fa-solid fa-user"></i>
+        <input type="file" name="pic" accept="image/*" />
+        <input type="submit" value="Upload Photo"/>
+      </form>
+    </div>
+  </div>
+</div>
