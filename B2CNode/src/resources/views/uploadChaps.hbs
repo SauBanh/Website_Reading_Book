@@ -1,6 +1,11 @@
 
-<form action="/upload/{{name}}/addchap" enctype="multipart/form-data" method="POST"> 
-   <input type="text" autocomplete="off" class="form-input" id="chapname" placeholder="Chap name" name="chapname"> 
-   <input type="file" name="myFile" multiple/>
-   <input type="submit" value="Upload a file"/>
-</form>
+<div class="grid wide">
+   <div class="content_chap">
+      <h3 class="title_upload_content_book">Add chap</h3>
+      <form action="/upload/{{name}}/addchap" enctype="multipart/form-data" method="POST"> 
+         <input type="text" autocomplete="off" class="form-input" id="chapname" placeholder="Chap name" name="chapname"> 
+         <input type="file" name="myFile" multiple/>
+         <input type="submit" value="Upload a file"/>
+      </form>
+   </div>
+</div>

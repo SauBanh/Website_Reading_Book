@@ -184,7 +184,6 @@
     var length = Number({{lastpage}});
     var list = document.getElementById('book_pagination');
     var currentPage = Number({{pagenow}});
-    console.log(currentPage)
     for(var i = 1; i <= length; i++){
         var html = `<li class="pagination-item"><a href="/?page=${i}" class="pagination-item_link ${i}">${i}</a></li>`
         if(i == currentPage){
