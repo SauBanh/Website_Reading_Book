@@ -209,7 +209,8 @@
 /* ========================Chap============================== */
 
 .content_chap{
-    padding: 20px 0;
+    padding: 20px;
+    background-color: #70707021;
 }
 
 form{
@@ -229,3 +230,88 @@ form{
     color: #fff;
     margin-bottom: 20px;
 }
+
+#chapname:focus{
+    outline: none;
+}
+
+.box_preview_upload_chap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#preview_img_chap{
+    border: 1px solid #fff;
+    width: 100%;
+}
+
+#preview_img_chap img{
+    width: 100%;
+}
+
+.content_chap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#number_file{
+    padding-top: 20px;
+}
+
+.btn_select_img{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #565656;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.btn_select_img i{
+    padding-right: 20px;
+    font-size: 30px;
+    display: block;
+}
+
+.submit_chap{
+    background-color: #565656;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 46.1875em){
+    #chapname{
+        width: 100%;
+    }
+}
+
+.container_chap_read{
+    padding: 20px 0;
+}
+
+.container_chap_read h3{
+    font-size: 25px;
+    line-height: 32px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* .container_chap_read img{
+    width: 100%;
+} */
+
+/* .box_pic{
+    height: 100vh;
+    overflow-y: scroll;
+} */
+
+/* .box_pic::-webkit-scrollbar {
+    width: 0;
+} */
