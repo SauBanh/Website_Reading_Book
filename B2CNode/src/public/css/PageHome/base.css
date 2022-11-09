@@ -91,3 +91,7 @@ html{
 .pagination-item-active .pagination-item_link{
     background-color: #565656;
 }
+
+.hide {
+    display: none;
+}

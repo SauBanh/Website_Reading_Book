@@ -101,6 +101,8 @@
     background-color: var(--box-notification);
     display: none;
     z-index: 20;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .show_box_search{
