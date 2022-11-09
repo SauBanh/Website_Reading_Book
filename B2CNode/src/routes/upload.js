@@ -18,6 +18,8 @@ const storage = multer.diskStorage({
       })
     } else {
       //book
+      console.log(req.body);
+      // chỉnh bookslug thành số định danh
       const dir = 'src/public/b2c_data/' + removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString();
       fs.exists(dir, exist => {
         if(!exist) {
@@ -44,9 +46,9 @@ const { exists } = require('../app/models/User');
 
 router.get('/', ctl.index);
 
-router.get('/photo', ctl.photo);
+router.get('/book', ctl.photo);
 
-router.post('/photo',upload.single('pic'), ctl.photoup);
+router.post('/book',upload.single('pic'), ctl.photoup);
 
 router.get('/:bookslug/addchap', ctl.chap);
 

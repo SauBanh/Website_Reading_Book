@@ -3,6 +3,8 @@ const router = express.Router();
 
 const ctl = require('../app/controllers/BooksController');
 
+router.get('/', ctl.apiBooks);
+
 router.get('/:slug', ctl.index);
 
 router.get('/:slug/:chap', ctl.chap);

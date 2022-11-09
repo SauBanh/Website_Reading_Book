@@ -27,7 +27,7 @@ db.connect();
 app.use(express.static(path.join(__dirname, 'public')));
 
 //add post data vao query.body
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //luu thong tin dang nhap
@@ -58,6 +58,7 @@ passport.use(new LocalStrategy(function(Email, password, done) {
         if (!(hashedPassword === user.hashpassword)) {
           return done(null, false);
         }
+        // check tk co dang active ko
         return done(null, user);
       });
     });
