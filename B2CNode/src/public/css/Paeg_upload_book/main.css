@@ -286,12 +286,6 @@ form{
     cursor: pointer;
 }
 
-@media (max-width: 46.1875em){
-    #chapname{
-        width: 100%;
-    }
-}
-
 .container_chap_read{
     padding: 20px 0;
 }
@@ -302,6 +296,16 @@ form{
     padding: 20px 0;
     text-align: center;
 }
+
+@media (max-width: 46.1875em){
+    #chapname{
+        width: 100%;
+    }
+    .container_chap_read{
+        margin-top: 60px;
+    }
+}
+
 
 /* .container_chap_read img{
     width: 100%;

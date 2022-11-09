@@ -34,7 +34,7 @@ class HomeController {
     }
 
     lstbook = lstbook.map(book => book.toObject());
-    res.render('home', {session: req.user, lstbook, lastpage, pagenow}); 
+    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books}); 
   }
 
 }
