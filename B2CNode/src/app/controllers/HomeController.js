@@ -7,7 +7,7 @@ class HomeController {
 
     var books = await Book.find({});
     const numbooks = Object.keys(books).length;
-    const elmEachPage = 5;
+    const elmEachPage = 15;
     const lastpage = ~~((numbooks-1)/elmEachPage) + 1;
 
     var pagenow;
@@ -28,13 +28,13 @@ class HomeController {
 
     } else {
 
-      for (let index = ((numbooks - 1) - (pagenow - 1)*elmEachPage); index > ((numbooks - 1) - pagenow*elmEachPage); index--) {
+      for (let index = ((numbooks - 1) - (pagenow - 1) * elmEachPage); index > ((numbooks - 1) - pagenow*elmEachPage); index--) {
           lstbook.push(books[index]);
         }
     }
 
     lstbook = lstbook.map(book => book.toObject());
-    res.render('home', {session: req.user, lstbook, lastpage, pagenow}); 
+    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books});
   }
 
 }

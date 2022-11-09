@@ -13,11 +13,17 @@ class BooksController {
   }
 
   async chap(req, res) { 
-    // làm link đàng hoàng cho chap --- chưa xong nên đừng chạy phần này!!!
+    // làm link đàng hoàng cho chap --- xong
     var thisbook = await Book.findOne({slug: req.params.slug});
     var chaps = await Chap.findOne({bookid: thisbook._id,  chapslug: req.params.chap});
     res.render('chap', {session: req.user, chaps: chaps.toObject()});
 
+  }
+
+  async apiBooks(req,res) {
+    var lstBooks = await Book.find();
+    lstBooks = lstBooks.map(book => book.toObject());
+    res.json(lstBooks);
   }
 
 }
