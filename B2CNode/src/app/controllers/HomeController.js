@@ -37,6 +37,10 @@ class HomeController {
     res.render('home', {session: req.user, lstbook, lastpage, pagenow, books}); 
   }
 
+  sessionapi(req, res) {
+    res.json(req.user);
+  }
+
 }
 
 module.exports = new HomeController();
