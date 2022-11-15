@@ -8,7 +8,8 @@ const book = new Schema({
     pic: {type:String, default: null}, 
     slug: {type:String, default: null}, 
     categories: {type: Array, default: []},
-    decs: {type: String, default: null}
+    decs: {type: String, default: null},
+    vip: {type: Boolean, default: false}
 },  {
     timestamps: true,
 });
