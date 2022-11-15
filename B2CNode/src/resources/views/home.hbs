@@ -158,7 +158,14 @@
                                     </div>
                                 </div>                        
                             </div>
+                            
                         {{/each}}
+                        {{#if session}}
+                        <p>Cường ăn Cứt</p>
+                        <p>{{session.vipexpire}}</p>
+                        {{else}}
+                        <p>Cường ăn Cứttttttttt</p>
+                        {{/if}}
                     </div>
                 </div>
                 <ul id="book_pagination" class="pagination home_list_book_pagination">
@@ -193,21 +200,3 @@
     }
 
 </script>
-{{!-- <form action="/order" method="get">
-    <button type="submit">Gio hang</button>
-</form>
-<form action="/auth/login" method="get">
-    <button type="submit">Dang nhap</button>
-</form>
-<form action="/auth/login/facebook" method="get">
-    <button type="submit">Dang nhap fb</button>
-</form>
-<form action="/auth/login/google" method="get">
-    <button type="submit">Dang nhap google</button>
-</form>
-<form action="/auth/signup" method="get">
-    <button type="submit">Dang ki</button>
-</form>
-<form action="/upload" method="get">
-    <button type="submit">Upload file</button>
-</form> --}}
