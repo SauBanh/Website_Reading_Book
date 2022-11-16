@@ -158,7 +158,9 @@
                                     </div>
                                 </div>                        
                             </div>
+                            
                         {{/each}}
+<<<<<<< HEAD
                         <div class="col l-2-4 m-4 c-6 ">
                             <div class="item_book_content">
                                 <div class="item_book_content_img_test">
@@ -400,6 +402,14 @@
                                 </div>
                             </div>                        
                         </div>
+=======
+                        {{#if session}}
+                        <p>Cường ăn Cứt</p>
+                        <p>{{session.vipexpire}}</p>
+                        {{else}}
+                        <p>Cường ăn Cứttttttttt</p>
+                        {{/if}}
+>>>>>>> 08d130eb5f3346d11e67c3b7d8963bff480537fc
                     </div>
                 </div>
                 <ul class="pagination home_list_book_pagination">
@@ -420,6 +430,7 @@
     </div>
 </div>
 <script src="/js/PageHome/slider.js"></script>
+<<<<<<< HEAD
 {{!-- <form action="/order" method="get">
     <button type="submit">Gio hang</button>
 </form>
@@ -438,3 +449,19 @@
 <form action="/upload" method="get">
     <button type="submit">Upload file</button>
 </form> --}}
+=======
+
+<script>
+    var length = Number({{lastpage}});
+    var list = document.getElementById('book_pagination');
+    var currentPage = Number({{pagenow}});
+    for(var i = 1; i <= length; i++){
+        var html = `<li class="pagination-item"><a href="/?page=${i}" class="pagination-item_link ${i}">${i}</a></li>`
+        if(i == currentPage){
+            html = `<li class="pagination-item pagination-item-active"><a href="/?page=${i}" class="pagination-item_link ${i}">${i}</a></li>`
+        }
+        list.insertAdjacentHTML('beforeend', html)
+    }
+
+</script>
+>>>>>>> 08d130eb5f3346d11e67c3b7d8963bff480537fc
