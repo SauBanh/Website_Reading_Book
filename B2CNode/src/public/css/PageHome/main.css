@@ -582,6 +582,9 @@ i.fa-solid.fa-circle.notification_header_viewed{
     text-align: left;
     padding: 0;
     color: #eee;
+    background-color: #0000005f;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .slider_item:nth-child(2) .slider_item_content{
@@ -591,6 +594,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 
 .slider_item .slider_item_name{
     font-size: 40px;
+    line-height: 48px;
     font-weight: bold;
     opacity: 0;
     animation: showSliderContent 1s ease-in-out 1 forwards;
@@ -608,7 +612,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 }
 
 .slider_item .slider_see_more{
-    margin: 20px 0;
+    margin: 20px 0 10px 0;
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
