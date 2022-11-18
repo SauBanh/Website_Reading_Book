@@ -147,7 +147,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="checkvip_header center hide_on_mobile"><a href="/order"><i class="fa-regular fa-gem checkvip_header_icon"></i></a></div>
+            {{#if session}}
+                <div class="checkvip_header center hide_on_mobile"><a href="/order"><i class="fa-regular fa-gem checkvip_header_icon"></i></a></div>
+                    {{else}}
+                <div class="checkvip_header center hide_on_mobile"><a href="/auth/login"><i class="fa-regular fa-gem checkvip_header_icon"></i></a></div>
+            {{/if}}
             <div class="user_header center hide_on_mobile">
                 <img class="user_header_img" src="/img/avata.jpg">
                 <div class="box_info_user">
