@@ -137,28 +137,90 @@
             <div class="clo l-10 m-12 c-12">
                 <div class="list_book_container">
                     <div class="row sm-gutter">
-                        {{#each lstbook}}
-                            <div class="col l-2-4 m-4 c-6 ">
-                                <div class="item_book_content">
-                                    <div class="item_book_content_img_test">
-                                    <img src="{{this.pic}}" class="item_book_content_img_img">
-                                    </div>
-                                    <div class="item_book_container_content">
-                                        <div class="box_desc_item_book">
-                                            <h3 class="item_book_name">{{this.bookname}}</h3>
-                                        <p class="item_book_desc">Tac gia: {{this.author}}</p>
+                        {{#if session.vipexpire}}
+                            {{#each lstbook}}
+                                <div class="col l-2-4 m-4 c-6 ">
+                                    <div class="item_book_content">
+                                        {{#if this.vip}}
+                                            <div class="vip_txt"><h4>Vip</h4></div>
+                                        {{/if}}
+                                        <div class="item_book_content_img_test">
+                                        <img src="{{this.pic}}" class="item_book_content_img_img">
                                         </div>
-                                        <div class="item_book_box_btn">
-                                            <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
-                                            <div href="" class="item_book_link_follow">
-                                                <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
+                                        <div class="item_book_container_content">
+                                            <div class="box_desc_item_book">
+                                                <h3 class="item_book_name">{{this.bookname}}</h3>
+                                            <p class="item_book_desc">Tac gia: {{this.author}}</p>
                                             </div>
-                                            <span class="item_book_view">12k View</span>
-                                        </div>    
-                                    </div>
-                                </div>                        
-                            </div>
-                        {{/each}}
+                                            <div class="item_book_box_btn">
+                                                <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
+                                                <div href="" class="item_book_link_follow">
+                                                    <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
+                                                </div>
+                                                <span class="item_book_view">12k View</span>
+                                            </div>    
+                                        </div>
+                                    </div>                        
+                                </div>
+                            {{/each}}
+                            {{else}}
+                            {{#each lstbook}}
+                                <div class="col l-2-4 m-4 c-6 ">
+                                    <div class="item_book_content">
+                                        {{#if this.vip}}
+                                            <div class="vip_txt"><h4>Vip</h4></div>
+                                        {{/if}}
+                                        <div class="item_book_content_img_test">
+                                        <img src="{{this.pic}}" class="item_book_content_img_img">
+                                        </div>
+                                        <div class="item_book_container_content">
+                                            <div class="box_desc_item_book">
+                                                <h3 class="item_book_name">{{this.bookname}}</h3>
+                                            <p class="item_book_desc">Tac gia: {{this.author}}</p>
+                                            </div>
+                                            <div class="item_book_box_btn">
+                                                {{#if this.vip}}
+                                                        <a href="/auth/login" class="item_book_read_now">Read Now</a>
+                                                    {{else}}
+                                                        <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
+                                                {{/if}}
+                                                <div href="" class="item_book_link_follow">
+                                                    <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
+                                                </div>
+                                                <span class="item_book_view">12k View</span>
+                                            </div>    
+                                        </div>
+                                    </div>                        
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                        {{!-- {{#each lstbook}}
+                                <div class="col l-2-4 m-4 c-6 ">
+                                    <div class="item_book_content">
+                                        <div class="vip_txt"><h4>Vip</h4></div>
+                                        <div class="item_book_content_img_test">
+                                        <img src="{{this.pic}}" class="item_book_content_img_img">
+                                        </div>
+                                        <div class="item_book_container_content">
+                                            <div class="box_desc_item_book">
+                                                <h3 class="item_book_name">{{this.bookname}}</h3>
+                                            <p class="item_book_desc">Tac gia: {{this.author}}</p>
+                                            </div>
+                                            <div class="item_book_box_btn">
+                                                {{#if this.vip}}
+                                                        <a href="/auth/login" class="item_book_read_now">Read Now</a>
+                                                    {{else}}
+                                                        <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
+                                                {{/if}}
+                                                <div href="" class="item_book_link_follow">
+                                                    <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
+                                                </div>
+                                                <span class="item_book_view">12k View</span>
+                                            </div>    
+                                        </div>
+                                    </div>                        
+                                </div>
+                            {{/each}} --}}
                     </div>
                 </div>
                 <ul id="book_pagination" class="pagination home_list_book_pagination">
