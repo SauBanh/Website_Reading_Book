@@ -9,7 +9,8 @@ const book = new Schema({
     slug: {type:String, default: null}, 
     categories: {type: Array, default: []},
     decs: {type: String, default: null},
-    vip: {type: Boolean, default: false}
+    vip: {type: Boolean, default: false},
+    active: {type: Boolean, default: true}
 },  {
     timestamps: true,
 });

@@ -6,7 +6,8 @@ const chapter = new Schema({
     bookid: {type: String, default: null}, 
     imglinks: {type: Array, default: []},
     chaplink: {type: String, default: null},
-    chapslug: {type: String, default: null} 
+    chapslug: {type: String, default: null},
+    active: {type: Boolean, default: true}
 },  {
     timestamps: true,
 });

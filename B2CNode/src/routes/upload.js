@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
+const Books = require('../app/models/Books');
+
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: async function (req, file, cb) {
     //can phan biet path cho book va path cho chap
     if(req.body.chapname !== undefined){
       //chap
@@ -18,9 +20,10 @@ const storage = multer.diskStorage({
       })
     } else {
       //book
+      const books = await Books.find({}).count() + 1;
       console.log(req.body);
       // chỉnh bookslug thành số định danh
-      const dir = 'src/public/b2c_data/' + removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString();
+      const dir = 'src/public/b2c_data/' + "B2C" + '_' + books;
       fs.exists(dir, exist => {
         if(!exist) {
           return fs.mkdir(dir, err => cb(err, dir))

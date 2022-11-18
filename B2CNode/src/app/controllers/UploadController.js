@@ -21,10 +21,11 @@ class UploadController {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
     //xoá khoảng trắng và dấu trong bookname và file - xong
-    formData.pic = '/b2c_data/' + removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString() + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
+    const books = await Book.find({}).count() + 1;
+    formData.pic = '/b2c_data/' + "B2C" + '_' + books + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
     formData.email = req.user.email;
-    formData.slug = removeVietnameseTones(req.body.bookname) + '_' + req.user._id.toString();
+    formData.slug = "B2C" + '_' + books;
     const newBook = new book(formData);
     const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
     newBook.categories = cater;
@@ -34,7 +35,7 @@ class UploadController {
   }
 
   chap(req, res) {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated()) {     
       res.render('uploadChaps', {name: req.params.bookslug, session: req.user});  
     } else
     res.redirect('/auth/login');
@@ -49,7 +50,7 @@ class UploadController {
       formData.chaplink = book.slug + "/" + removeVietnameseTones(req.body.chapname);
       formData.chapslug = removeVietnameseTones(req.body.chapname);
       const newChap = new chapter(formData);
-      //link chua xong
+      //link xong
       req.files.forEach(element  =>{
         var data = new String( formData.chaplink + "/" + removeVietnameseTones(element.originalname));
         newChap.imglinks.push(data);
