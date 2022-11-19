@@ -4,6 +4,7 @@ const authRouter = require('./auth');
 const upload = require('./upload');
 const adminload = require('./admin');
 const read = require('./read');
+const user = require('./user');
 
 function route(app) {
   app.use('/', newRouter);
@@ -18,6 +19,7 @@ function route(app) {
 
   app.use('/read', read);
 
+  app.use('/user', user);
 
 }
 

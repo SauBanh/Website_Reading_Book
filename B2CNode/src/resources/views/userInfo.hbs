@@ -1,0 +1,24 @@
+<h1>User info</h1>
+<br>
+<h5>Username</h5>
+<p>{{session.username}}</p>
+<br>
+<h5>Email</h5>
+<p>{{session.email}}</p>
+<br>
+<h5>Linked account</h5>
+{{#if session.fbid}}
+    {{#if session.ggid}}
+        <p>Google  Facebook</p>
+    {{else}}
+        <p>Facebook</p>
+    {{/if}}
+{{else}}
+    {{#if session.ggid}}
+        <p>Google</p>
+    {{else}}
+        <p>Not linked</p>
+    {{/if}}
+{{/if}}
+<br>
+<input type="button" value="Change pass!">

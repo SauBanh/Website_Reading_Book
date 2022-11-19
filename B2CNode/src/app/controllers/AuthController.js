@@ -112,6 +112,10 @@ class AuthController {
         })
     };
 
+    err(req, res){
+        res.render('loginErr');
+    }
+
 }
 
 function makeid() {

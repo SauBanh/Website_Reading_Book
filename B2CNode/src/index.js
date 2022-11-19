@@ -59,6 +59,8 @@ passport.use(new LocalStrategy(function(Email, password, done) {
           return done(null, false);
         }
         // check tk co dang active ko
+        //check account status
+        if (user.active == false) { return done(err); }
         return done(null, user);
       });
     });
@@ -87,6 +89,8 @@ function verify(accessToken, refreshToken, profile, done) {
       }
       else{
         //old user
+        //check account status
+        if (user.active == false) { return done(err); }
         user.fbid = profile.id;
         user.save();
         return done(null, user);
@@ -117,6 +121,8 @@ function verify(accessToken, profile, done) {
       }
       else{
         //old user
+        //check account status
+        if (user.active == false) { return done(err); }
         user.ggid = profile.id;
         user.save();
         return done(null, user);
