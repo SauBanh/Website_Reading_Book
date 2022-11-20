@@ -1,6 +1,46 @@
-{{#each lstBook}}
-<br>
-<h3>{{bookname}}</h3>
-<a href="/read/{{slug}}">View</a>
-<br>
-{{/each}}
+<style>
+    .box_page_userLstBook{
+        padding: 20px;
+    }
+    .title_box_page_userLstBook{
+        font-size: 30px;
+        margin-bottom: 20px;
+        line-height: 42px;
+    }
+    .box_book_page_userLstBook{
+        display: flex;
+        align-items: center;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 15px 30px;
+        width: 500px;
+    }
+    .box_book_page_userLstBook:hover{
+        background-color: rgb(89, 89, 89);
+    }
+    .box_book_page_userLstBook h3{
+        font-size: 20px;
+    }
+    .box_page_userLstBook a{
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+    }
+    @media (max-width: 46.1875em){
+        .box_book_page_userLstBook{
+            width: 100%
+        }
+    }
+</style>
+
+
+<div class="box_page_userLstBook m_t_mobile">
+    <h2 class="title_box_page_userLstBook">Danh sách những truyện đã đăng</h2>
+    {{#each lstBook}}
+        <a href="/read/{{slug}}">
+            <div class="box_book_page_userLstBook">
+                <h3>Tên sách: {{bookname}}</h3>                
+            </div>        
+        </a>
+    {{/each}}   
+</div>

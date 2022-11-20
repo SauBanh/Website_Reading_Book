@@ -43,6 +43,9 @@
 
 /* Mobile */
 @media (max-width: 46.1875em){
+    .m_t_mobile{
+        margin-top: 60px;
+    }
     .category_top{
         display: none;
     }
