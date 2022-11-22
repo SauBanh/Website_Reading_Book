@@ -1,11 +1,13 @@
 <style>
     .box_page_user_info{
         padding: 20px;
+        height: 60vh;
     }
     .title_box_page_user_info{
         font-size: 30px;
         line-height: 42px;
         margin-bottom: 20px;
+        padding-top: 50px;
     }
     .title_son{
         margin-bottom: 15px;
@@ -19,13 +21,14 @@
         border-radius: 10px;
         font-size: 20px;
         font-weight: 600;
+        text-decoration: none;
     }
     .btn_chage_pass:hover{
-        background-color: #000;
+        background-color: rgba(130, 130, 130, 0.401);
         color: #fff;
     }
 </style>
-<div class="box_page_user_info m_t_mobile">
+<div class="box_page_user_info m_t_mobile grid wide">
     <h3 class="title_box_page_user_info">Trang thông tin cá nhân</h3>
     <div class="box_info_page_info">
         <h4 class="title_son">User name: {{session.username}}</h4>
@@ -45,14 +48,16 @@
                 {{/if}}
             {{/if}}
         </h4>
-        <h5>Là thành viên tại B2C</h5>
-        {{#if session.hashpassword}}
-        <p>Đã là thành viên của B2C</p>
-        {{else}}
-        <p>Chưa là thành viên của B2C</p>
-        {{/if}}
+        <h4 class="title_son">Là thành viên tại B2C: 
+            {{#if session.hashpassword}}
+            Đã là thành viên của B2C
+            {{else}}
+            Chưa là thành viên của B2C
+            {{/if}}
+        </h4>
+        
     </div>
     <br>
-    <a href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
+    <a class="btn_chage_pass" href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
     <br>
 </div>
