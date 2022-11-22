@@ -1,7 +1,26 @@
-<div class="box_page_buy_history">
+<style>
+    .box_page_buy_history{
+        
+        height: 60vh;        
+    }
+    .title_page_buy_history{
+        padding-top: 50px;
+        font-size: 30px;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+    .string_page_buy_history{
+        font-size: 22px;
+        line-height: 32px;
+    }
+</style>
+<div class="box_page_buy_history m_t_mobile grid wide">
+    <h3 class="title_page_buy_history">Lịch Sử mua truyện Vip</h3>
     {{#each lstBuy}}
-        <p>Money: {{vnp_Amount}}</p>
-        <p>String pay date: {{vnp_PayDate}}</p>
-        <p>Order info: {{vnp_OrderInfo}}</p>
+        <p class="string_page_buy_history">Số tiền: {{vnp_Amount}}</p>
+        <p class="string_page_buy_history">Ngày thanh toán: {{vnp_PayDate}}</p>
+        <p class="string_page_buy_history">Thông tin gói Vip đăng ký: {{vnp_OrderInfo}}</p>
+        {{else}}
+        <p class="string_page_buy_history">Bạn chưa đăng ký gói vip nào cả</p>
     {{/each}}
 </div>
