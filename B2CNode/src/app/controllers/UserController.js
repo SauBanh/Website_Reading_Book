@@ -46,11 +46,12 @@ class UserController {
             crypto.pbkdf2(req.body.oldPass, 'cuongggg', 100000, 32, 'sha256',async function(err, hashedPassword){
                 if (err) { return next(err); }
                 hashedPassword = hashedPassword.toString('hex');
-                var user = await User.find({email: req.user.email});
+                var user = await User.findOne({email: req.user.email});
                 if(hashedPassword == user.hashpassword) {
                     crypto.pbkdf2(req.body.newPass, 'cuongggg', 100000, 32, 'sha256',async function(err, hashedPassword){
                         if (err) { return next(err); }
                         user.hashpassword = hashedPassword.toString('hex');
+                        user.save();
                         res.redirect('/user/info');
                     })
                 }
