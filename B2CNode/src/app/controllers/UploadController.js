@@ -26,12 +26,13 @@ class UploadController {
     formData.author = req.user.username;
     formData.email = req.user.email;
     formData.slug = "B2C" + '_' + books;
+    formData.vip = false;
     if(req.body.vip == 'true'){
       formData.vip = true;
     }
     const newBook = new book(formData);
     // const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
-    newBook.categories = cater;
+    //newBook.categories = cater;
     newBook.save();
     await sleep(200);
     res.redirect('/upload/' + newBook.slug + '/addchap');

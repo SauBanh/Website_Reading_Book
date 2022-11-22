@@ -21,7 +21,6 @@ const storage = multer.diskStorage({
     } else {
       //book
       const books = await Books.find({}).count() + 1;
-      console.log(req.body);
       // chỉnh bookslug thành số định danh
       const dir = 'src/public/b2c_data/' + "B2C" + '_' + books;
       fs.exists(dir, exist => {
