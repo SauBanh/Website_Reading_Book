@@ -201,6 +201,8 @@
 .list_box_info_user{
     list-style: none;
     z-index: 30;
+    max-height: 180px;
+    overflow-y: auto;
 }
 
 .box_info_user{
@@ -208,7 +210,7 @@
     position: absolute;
     top: calc(100% + 20px);
     right: -25px;
-    width: 150px;
+    width: 200px;
     height: auto;
     max-height: 200px;
     background-color: var(--box-notification);
@@ -234,7 +236,10 @@
 
 .list_box_info_user{
     width: 100%;
-    height: 100%;
+}
+
+.list_box_info_user::-webkit-scrollbar {
+    width: 5px;
 }
 
 .item_box_info_user{

@@ -14,13 +14,14 @@ const storage = multer.diskStorage({
       const dir = 'src/public/b2c_data/' + req.params.bookslug + '/' + removeVietnameseTones(req.body.chapname);
       fs.exists(dir, exist => {
         if(!exist) {
-          return fs.mkdir(dir, err => cb(err, dir));
+          return fs.mkdir(dir, err => cb(err, dir))
         }
-        return cb(Error, dir);
+        return cb(null, dir);
       })
     } else {
       //book
       const books = await Books.find({}).count() + 1;
+      console.log(req.body);
       // chỉnh bookslug thành số định danh
       const dir = 'src/public/b2c_data/' + "B2C" + '_' + books;
       fs.exists(dir, exist => {

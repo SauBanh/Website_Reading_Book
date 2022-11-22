@@ -2,8 +2,7 @@
 class AdminController {
   //[get] -> home
   admin(req, res) { 
-    //check authen and admin role
-    res.render('admin', {session: req.user});
+    res.render('admin', {session: req.user, layout: false});
   }
 
 }
