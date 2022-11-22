@@ -162,10 +162,18 @@
                             </a></li>
                             <li class="item_box_info_user"><a href="/auth/logout" class="link_box_info_user">Đăng xuất</a></li>
                             <li class="item_box_info_user"><a href="#" class="link_box_info_user">Vip expire in: {{session.vipexpire}}</a></li>
+                            <li class="item_box_info_user"><a href="/user/info" class="link_box_info_user">Thông tin tài khoản</a></li>
+                            <li class="item_box_info_user"><a href="/user/book" class="link_box_info_user">Truyện đã đăng</a></li>
+                            <li class="item_box_info_user"><a href="/user/history" class="link_box_info_user">Lịch sử thanh toán</a></li>
+                                {{#if session.admin}}
+                                    <li class="item_box_info_user"><a href="/admin" class="link_box_info_user">Quản lí</a></li>                                  
+                                {{/if}}
+                                {{#if session.uploader}}
+                                    <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>
+                                {{/if}}
                         {{else}}
                             <li class="item_box_info_user"><a class="link_box_info_user name_account" href="/auth/login">Đăng nhập</a></li>
                         {{/if}}
-                            <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Upload</a></li>
                     </ul>
                 </div>
             </div>

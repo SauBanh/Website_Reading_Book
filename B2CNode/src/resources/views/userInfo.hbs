@@ -9,7 +9,7 @@
 <h5>Linked account</h5>
 {{#if session.fbid}}
     {{#if session.ggid}}
-        <p>Google  Facebook</p>
+        <p>Google and Facebook</p>
     {{else}}
         <p>Facebook</p>
     {{/if}}
@@ -21,4 +21,13 @@
     {{/if}}
 {{/if}}
 <br>
-<input type="button" value="Change pass!">
+<h5>Là thành viên tại B2C</h5>
+{{#if session.hashpassword}}
+<p>Đã là thành viên của B2C</p>
+{{else}}
+<p>Chưa là thành viên của B2C</p>
+{{/if}}
+<br>
+<a href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
+<br>
+<H5>Lưu ý: Tài khoản cần phải được đăng kí tại web để thực hiện việc này!</H5>

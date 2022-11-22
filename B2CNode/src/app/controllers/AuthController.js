@@ -58,8 +58,8 @@ class AuthController {
             var mailOptions = {
                 from: 'b2c.technology.developer@gmail.com',
                 to: req.body.email,
-                subject: 'Xác thực email',
-                text: 'Key của bạn là: ' + rndnum,
+                subject: '[B2C] Xác thực email',
+                text: 'Mã xác thực của bạn là: ' + rndnum,
             };
             
             transporter.sendMail(mailOptions, function(error, info){

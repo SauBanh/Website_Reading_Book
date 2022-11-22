@@ -57,7 +57,7 @@ class BooksController {
   }
 
   async apiBooks(req,res) {
-    var lstBooks = await Book.find();
+    var lstBooks = await Book.find({active: true});
     lstBooks = lstBooks.map(book => book.toObject());
     res.json(lstBooks);
   }

@@ -8,7 +8,10 @@ const user = new Schema({
     ggid: {type: String, default: null},
     fbid: {type: String, default: null},
     vipexpire: {type: Date, default: Date.now()},
-    active: {type: Boolean, default: true}
+    active: {type: Boolean, default: true},
+    //change to default user role on default
+    uploader: {type: Boolean, default: false},
+    admin: {type: Boolean, default: false}
 },  {
     timestamps: true,
 });
