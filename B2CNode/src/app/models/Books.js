@@ -7,6 +7,7 @@ const book = new Schema({
     bookname: {type: String, default: null}, 
     pic: {type:String, default: null}, 
     slug: {type:String, default: null}, 
+    viewCount: {type:Number, default: 0},
     categories: {type: Array, default: []},
     decs: {type: String, default: null},
     vip: {type: Boolean, default: false},

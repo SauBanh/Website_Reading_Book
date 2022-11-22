@@ -6,6 +6,7 @@ class BooksController {
   //xong trả về đọc truyện
   async index(req, res) { 
 
+    var chapCount;
     var thisbook = await Book.findOne({slug: req.params.slug});
 
     //check if user viewed this book
@@ -22,6 +23,8 @@ class BooksController {
 
     //count how many people has viewed this book
     const viewNumber = await View.find({bookid: thisbook._id.toString()}).count();    
+    thisbook.viewCount = viewNumber;
+    thisbook.save();  
 
     //check xem phai truyen vip ko
     if(thisbook.vip == true){
@@ -36,14 +39,16 @@ class BooksController {
           res.render('order', {session: req.user})
         } else {
           var chaps = await Chap.find({bookid: thisbook._id});
+          chapCount = await Chap.find({bookid: thisbook._id}).count();
           chaps = chaps.map(chap => chap.toObject());
-          res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber});
+          res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
         }
       }
     } else {
       var chaps = await Chap.find({bookid: thisbook._id});
+      chapCount = await Chap.find({bookid: thisbook._id}).count();
       chaps = chaps.map(chap => chap.toObject());
-      res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber});
+      res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
     }
 
   }

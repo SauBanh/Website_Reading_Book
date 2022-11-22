@@ -33,8 +33,11 @@ class HomeController {
         }
     }
 
+    var top5book = await Book.find({active: true}).sort({viewCount: -1}).limit(5);
+    top5book = top5book.map(book => book.toObject());
+
     lstbook = lstbook.map(book => book.toObject());
-    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books}); 
+    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books, top5book}); 
   }
 
   sessionapi(req, res) {

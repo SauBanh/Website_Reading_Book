@@ -33,7 +33,7 @@
     </div>
     <div class="upload_book_content_bottom">
       <h3 class="title_upload_content_book">Mô tả về sách</h3>
-      <textarea name="" id="desc_book_upload" cols="15" rows="10"></textarea>
+      <textarea name="desc_book_upload" id="desc_book_upload" cols="15" rows="10"></textarea>
       <div class="box_btn">
         <div class="box_check_vip">
           <input type="checkbox" id="check_vip">
@@ -51,6 +51,8 @@
   <form action="/upload/book" enctype="multipart/form-data" method="POST"> 
   <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
   <input type="file" id="post_input_file" name="pic" accept="image/*" />
+  <input type="text" id="post_input_file" name="desc" />
+  <input type="text" id="post_vip" name="vip" />
   <input type="submit" id="post_submit" value="Upload Photo"/>
 </form>
 </div>
