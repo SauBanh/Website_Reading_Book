@@ -1,8 +1,8 @@
 
 class AdminController {
   //[get] -> home
-  cater(req, res) { 
-    res.render('home', {session: req.user});
+  admin(req, res) { 
+    res.render('admin', {session: req.user});
   }
 
 }

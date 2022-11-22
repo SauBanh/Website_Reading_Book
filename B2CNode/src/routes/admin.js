@@ -3,6 +3,6 @@ const router = express.Router();
 
 const ctl = require('../app/controllers/AdminController');
 
-router.get('/addcatergories', ctl.cater);
+router.get('/', ctl.admin);
 
 module.exports = router;
