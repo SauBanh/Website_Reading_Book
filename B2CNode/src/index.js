@@ -47,15 +47,15 @@ app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'resources/views'));
 
 //xac thuc dang nhap user-password
-passport.use(new LocalStrategy(function(Email, password, done) {
-    User.findOne({email: Email }, function(err, user) {
+passport.use(new LocalStrategy(function verify(username, password, done) {
+    User.findOne({email: username }, function(err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
   
       crypto.pbkdf2(password, 'cuongggg', 100000, 32, 'sha256', function(err, hashedPassword) {
         if (err) { return cb(err); };
-        hashedPassword = hashedPassword.toString('hex');
-        if (!(hashedPassword === user.hashpassword)) {
+        const hashPassword = hashedPassword.toString('hex');
+        if (!(hashPassword == user.hashpassword)) {
           return done(null, false);
         }
         // check tk co dang active ko
