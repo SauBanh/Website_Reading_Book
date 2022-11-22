@@ -21,9 +21,10 @@ class UploadController {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
     //xoá khoảng trắng và dấu trong bookname và file - xong
-    const books = await Book.find({}).count() + 1;
+    const books = await book.find({}).count() + 1;
     formData.pic = '/b2c_data/' + "B2C" + '_' + books + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
+    formData.decs = req.body.desc_book_upload;
     formData.email = req.user.email;
     formData.slug = "B2C" + '_' + books;
     const newBook = new book(formData);

@@ -5,7 +5,7 @@ class HomeController {
   //[get] -> home
   async index(req, res) { 
 
-    var books = await Book.find({});
+    var books = await Book.find({active: true});
     const numbooks = Object.keys(books).length;
     const elmEachPage = 20;
     const lastpage = ~~((numbooks-1)/elmEachPage) + 1;

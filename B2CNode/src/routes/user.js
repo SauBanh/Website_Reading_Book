@@ -11,4 +11,9 @@ router.get('/book', ctl.mybook);
 
 router.get('/history', ctl.buyHistory);
 
+router.get('/changepass', ctl.changePass);
+
+router.post('/changepass', ctl.changePassCB);
+
+
 module.exports = router;

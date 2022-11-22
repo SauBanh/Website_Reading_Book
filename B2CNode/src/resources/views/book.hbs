@@ -26,11 +26,11 @@
             </div>
             <div class="book_desc_header">
                 <h3 class="book_header_title"><i class="fa-solid fa-circle-info"></i>Giới Thiệu</h3>
+                {{#if thisbook}}
                 <p class="book_desc_header_p">
-                    Võ đạo đỉnh phong, là cô độc, là tịch mịch, là dài đằng đẵng cầu tác, là cao xử bất thắng hàn
-                    Phát triển trong nghịch cảnh, cầu sinh nơi tuyệt địa, bất khuất không buông tha, mới có thể có thể phá võ chi cực đạo.
-                    Lăng Tiêu các thí luyện đệ tử kiêm quét rác gã sai vặt Dương Khai ngẫu lấy được một bản vô tự hắc thư, từ nay về sau đạp vào dài đằng đẵng võ đạo.
+                    {{thisbook.desc}}
                 </p>
+                {{/if}}
             </div>
             <div class="book_chapter_header">
                 <h3 class="book_header_title"><i class="fa-solid fa-database"></i>Danh sách các chương</h3>

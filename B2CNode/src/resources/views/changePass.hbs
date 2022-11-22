@@ -1,0 +1,11 @@
+<form action="/user/changePass" method="post">
+<input type="text" name="oldPass" id="oldPass" placeholder="Nhập mật khẩu cũ">
+<br>
+<input type="text" name="newPass" id="newPass" placeholder="Nhập mật khẩu mới">
+<br>
+<input type="submit" value="Đổi mật khẩu">
+<br>
+{{#if err}}
+<p>Sai mật khẩu cũ!</p>
+{{/if}}
+</form>

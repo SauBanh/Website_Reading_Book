@@ -30,10 +30,10 @@
     <div class="box_info_page_info">
         <h4 class="title_son">User name: {{session.username}}</h4>
         <h4 class="title_son">Email: {{session.email}}</h4>
-        <h4 class="title_son">Linked accoun: 
+        <h4 class="title_son">Linked account: 
             {{#if session.fbid}}
                 {{#if session.ggid}}
-                    Google Facebook
+                    Google and Facebook
                 {{else}}
                     Facebook
                 {{/if}}
@@ -45,6 +45,14 @@
                 {{/if}}
             {{/if}}
         </h4>
+        <h5>Là thành viên tại B2C</h5>
+        {{#if session.hashpassword}}
+        <p>Đã là thành viên của B2C</p>
+        {{else}}
+        <p>Chưa là thành viên của B2C</p>
+        {{/if}}
     </div>
-    <input class="btn_chage_pass" type="button" value="Change pass!">
+    <br>
+    <a href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
+    <br>
 </div>
