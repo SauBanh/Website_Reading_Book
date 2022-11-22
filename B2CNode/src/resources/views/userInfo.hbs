@@ -1,33 +1,58 @@
-<h1>User info</h1>
-<br>
-<h5>Username</h5>
-<p>{{session.username}}</p>
-<br>
-<h5>Email</h5>
-<p>{{session.email}}</p>
-<br>
-<h5>Linked account</h5>
-{{#if session.fbid}}
-    {{#if session.ggid}}
-        <p>Google and Facebook</p>
-    {{else}}
-        <p>Facebook</p>
-    {{/if}}
-{{else}}
-    {{#if session.ggid}}
-        <p>Google</p>
-    {{else}}
-        <p>Not linked</p>
-    {{/if}}
-{{/if}}
-<br>
-<h5>Là thành viên tại B2C</h5>
-{{#if session.hashpassword}}
-<p>Đã là thành viên của B2C</p>
-{{else}}
-<p>Chưa là thành viên của B2C</p>
-{{/if}}
-<br>
-<a href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
-<br>
-<H5>Lưu ý: Tài khoản cần phải được đăng kí tại web để thực hiện việc này!</H5>
+<style>
+    .box_page_user_info{
+        padding: 20px;
+    }
+    .title_box_page_user_info{
+        font-size: 30px;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+    .title_son{
+        margin-bottom: 15px;
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .btn_chage_pass{
+        background-color: #fff;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .btn_chage_pass:hover{
+        background-color: #000;
+        color: #fff;
+    }
+</style>
+<div class="box_page_user_info m_t_mobile">
+    <h3 class="title_box_page_user_info">Trang thông tin cá nhân</h3>
+    <div class="box_info_page_info">
+        <h4 class="title_son">User name: {{session.username}}</h4>
+        <h4 class="title_son">Email: {{session.email}}</h4>
+        <h4 class="title_son">Linked accoun: 
+            {{#if session.fbid}}
+                {{#if session.ggid}}
+                    Google Facebook
+                {{else}}
+                    Facebook
+                {{/if}}
+            {{else}}
+                {{#if session.ggid}}
+                    Google
+                {{else}}
+                    Not linked
+                {{/if}}
+            {{/if}}
+        </h4>
+        <h5>Là thành viên tại B2C</h5>
+        {{#if session.hashpassword}}
+        <p>Đã là thành viên của B2C</p>
+        {{else}}
+        <p>Chưa là thành viên của B2C</p>
+        {{/if}}
+    </div>
+    <br>
+    <a href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
+    <br>
+</div>
