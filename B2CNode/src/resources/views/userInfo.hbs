@@ -57,7 +57,9 @@
         </h4>
         
     </div>
-    <br>
-    <a class="btn_chage_pass" href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
-    <br>
+    {{#if session.hashpassword}}
+        <br>
+        <a class="btn_chage_pass" href="/user/changepass" type="button" value="">Đổi mật khẩu!</a>
+        <br>
+    {{/if}}
 </div>
