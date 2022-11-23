@@ -44,7 +44,7 @@
         .app{
             margin-top: 40px;
             width: 100%;
-            height: 500px;
+            height: calc(100vh - 40px);
             display: flex;
         }
         .tab_left_app{
@@ -79,6 +79,8 @@
             display: block;
         }
         .box_content_right{
+            display: flex;
+            flex-direction: column;
             width: 100%;
             height: 100%;
         }
@@ -87,12 +89,30 @@
             list-style: none;
             width: 100%;
         }
-        .item_tab_top_app{
+        .item_tab_top_app,.item_tab_top_app_qltr{
             background-color: #ccc;
             flex: 1;
             text-align: center;
-            align-items: 22px;
+            align-items: center;
             padding: 10px 20px;
+        }
+        .box_content_top{
+            width: 100%;
+            height: 100%;
+        }
+        .pane_tab_top_app,.pane_tab_top_app_qltr{
+            display: none;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }    
+        .active_top_pane{
+            display: flex;
+        }
+        .active_top{
+            display: block;
+            background-color: aqua;
         }
     </style>
 </head>
@@ -106,31 +126,50 @@
     <div class="app">
         <div class="tab_left_app">
             <ul class="list_tab_left_app">
-                <li class="item__tab_left_app active_left">Danh sách tài khoản</li>
-                <li class="item__tab_left_app">Danh sách tài khoản</li>
-                <li class="item__tab_left_app">Danh sách tài khoản</li>
-                <li class="item__tab_left_app">Danh sách tài khoản</li>
+                <li class="item__tab_left_app active_left">Quản lý tài khoản</li>
+                <li class="item__tab_left_app">Quản lý truyện</li>
             </ul>
         </div>
         <div class="box_container">
             <div class="pane__tab_left_app active_left_pane">
                 <div class="box_content_right">
                     <ul class="list_tab_top_app">
-                        <li class="item_tab_top_app">Tât cả tài khoản người dùng</li>
+                        <li class="item_tab_top_app active_top">Tât cả tài khoản người dùng</li>
                         <li class="item_tab_top_app">Tài khoản có quyền đăng sách</li>
                         <li class="item_tab_top_app">Tài khoản admin</li>
                         <li class="item_tab_top_app">Tài khoản bị disable</li>
                     </ul>
+                    <div class="box_content_top">
+                        <div class="pane_tab_top_app active_top_pane" style="background-color: #000;">
+                            Tât cả tài khoản người dùng
+                        </div>
+                        <div class="pane_tab_top_app" style="background-color: rgb(106, 32, 32);">
+                            Tài khoản có quyền đăng sách
+                        </div>
+                        <div class="pane_tab_top_app" style="background-color: rgb(32, 5, 83);">
+                            Tài khoản admin
+                        </div>
+                        <div class="pane_tab_top_app" style="background-color: rgb(123, 18, 95);">
+                            Tài khoản bị disable
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="pane__tab_left_app" style="background-color: rgb(104, 31, 69);">
-                456
-            </div>
-            <div class="pane__tab_left_app" style="background-color: rgb(27, 196, 75);">
-                789
-            </div>
-            <div class="pane__tab_left_app" style="background-color: rgb(105, 15, 15);">
-                abc
+            <div class="pane__tab_left_app">
+                <div class="box_content_right">
+                    <ul class="list_tab_top_app">
+                        <li class="item_tab_top_app_qltr active_top">Tất cả truyện</li>
+                        <li class="item_tab_top_app_qltr">Truyện bị disable</li>
+                    </ul>
+                    <div class="box_content_top">
+                        <div class="pane_tab_top_app_qltr active_top_pane" style="background-color: rgb(5, 138, 76);">
+                            Tât cả tài khoản người dùng
+                        </div>
+                        <div class="pane_tab_top_app_qltr" style="background-color: rgb(108, 165, 16);">
+                            Tài khoản có quyền đăng sách
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -148,6 +187,30 @@
                 $('.item__tab_left_app.active_left').classList.remove('active_left');
                 this.classList.add('active_left');
                 pane.classList.add('active_left_pane');
+            }
+        })
+        //tab quan lý truyện
+        const tabsTops = $$('.item_tab_top_app');
+        const pansTop = $$('.pane_tab_top_app');
+        tabsTops.forEach((tabTop, index) =>{
+            const pane = pansTop[index]
+            tabTop.onclick = function(){
+                $('.pane_tab_top_app.active_top_pane').classList.remove('active_top_pane');
+                $('.item_tab_top_app.active_top').classList.remove('active_top');
+                this.classList.add('active_top');
+                pane.classList.add('active_top_pane');
+            }
+        })
+        //tab quan lý tài khoản
+        const tabsTopsqltrs = $$('.item_tab_top_app_qltr');
+        const pansTopqltr = $$('.pane_tab_top_app_qltr');
+        tabsTopsqltrs.forEach((tabTopqltr, index) =>{
+            const pane = pansTopqltr[index]
+            tabTopqltr.onclick = function(){
+                $('.pane_tab_top_app_qltr.active_top_pane').classList.remove('active_top_pane');
+                $('.item_tab_top_app_qltr.active_top').classList.remove('active_top');
+                this.classList.add('active_top');
+                pane.classList.add('active_top_pane');
             }
         })
     </script>
