@@ -51,8 +51,8 @@
   <form action="/upload/book" enctype="multipart/form-data" method="POST"> 
   <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
   <input type="file" id="post_input_file" name="pic" accept="image/*" />
-  <input type="checkbox" name="" id="checkvipform">
-  <input type="text" id="txtdescform">
+  <input type="checkbox" name="vip" id="checkvipform">
+  <input type="text" name="decs" id="txtdescform">
   <input type="submit" id="post_submit" value="Upload Photo"/>
 </form>
 </div>
@@ -118,9 +118,10 @@ function upLoadFile(){
 
 btnUpload.onclick = function(){
   bookName.value = inputName.value;
+  textdesc.value = descinput.value;
   if(postFile.value != ''){
     if(bookName.value != ''){
-      if(descinput.value != ''){
+      if(textdesc.value != ''){
         upLoadFile()
         alert('Tạo truyện thành công!')
       }else{

@@ -20,16 +20,17 @@ class UploadController {
   async photoup(req, res) {
     //xử lí add thông tin vào db ở đây
     const formData = req.body;
+    console.log(formData);
     //xoá khoảng trắng và dấu trong bookname và file - xong
     const books = await book.find({}).count() + 1;
     formData.pic = '/b2c_data/' + "B2C" + '_' + books + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
-    formData.decs = req.body.desc;
     formData.email = req.user.email;
     formData.slug = "B2C" + '_' + books;
-    formData.vip = false;
-    if(req.body.vip == 'true'){
+    if(req.body.vip == 'on'){
       formData.vip = true;
+    } else {
+      formData.vip = false;
     }
     const newBook = new book(formData);   
     // const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
