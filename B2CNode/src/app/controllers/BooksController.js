@@ -10,11 +10,8 @@ class BooksController {
     var thisbook = await Book.findOne({slug: req.params.slug});
     var isView;
     
-
     //count how many people has viewed this book
-    const viewNumber = await View.find({bookid: thisbook._id.toString()}).count();    
-    thisbook.viewCount = viewNumber;
-    thisbook.save();  
+    var viewNumber;
 
     //check xem phai truyen vip ko
     if(thisbook.vip == true){
@@ -37,6 +34,9 @@ class BooksController {
             viewer.save();
             await sleep(50);
           }
+          viewNumber = await View.find({bookid: thisbook._id.toString()}).count();
+          thisbook.viewCount = viewNumber;
+          thisbook.save();  
           var chaps = await Chap.find({bookid: thisbook._id});
           chaps = chaps.map(chap => chap.toObject());
           chapCount = await Chap.find({bookid: thisbook._id}).count();
@@ -55,6 +55,9 @@ class BooksController {
           await sleep(50);
         }
       }
+      viewNumber = await View.find({bookid: thisbook._id.toString()}).count();
+      thisbook.viewCount = viewNumber;
+      thisbook.save();
       var chaps = await Chap.find({bookid: thisbook._id});
       chaps = chaps.map(chap => chap.toObject());
       chapCount = await Chap.find({bookid: thisbook._id}).count();

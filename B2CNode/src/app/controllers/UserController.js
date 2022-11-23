@@ -52,10 +52,11 @@ class UserController {
                         if (err) { return next(err); }
                         user.hashpassword = hashedPassword.toString('hex');
                         user.save();
-                        res.redirect('/user/info');
+                        res.redirect('/auth/logout');
                     })
+                } else {
+                    res.render('changePass', {session: req.user, err: true})
                 }
-                res.render('changePass', {session: req.user, err: true})
             })
         } else {
             res.redirect('/');

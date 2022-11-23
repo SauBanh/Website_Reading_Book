@@ -51,8 +51,8 @@
   <form action="/upload/book" enctype="multipart/form-data" method="POST"> 
   <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
   <input type="file" id="post_input_file" name="pic" accept="image/*" />
-  <input type="checkbox" name="" id="checkvipform">
-  <input type="text" id="txtdescform">
+  <input type="checkbox" name="vip" id="checkvipform">
+  <input type="text" name="decs" id="txtdescform">
   <input type="submit" id="post_submit" value="Upload Photo"/>
 </form>
 </div>
@@ -63,7 +63,7 @@
   var previewImg = document.getElementById('preview_img_book');
   var valueVip = document.getElementById('check_vip');
   var descinput = document.getElementById('desc_book_upload');
-  var typeImg = ["jpeg", "png", "jpg"];// các type ảnh
+  var typeImg = ["jpeg", "png", "jpg", "gif"];// các type ảnh
 
   var getName = '';
 
@@ -117,6 +117,7 @@ function checkbookvip(){
 
 btnUpload.onclick = function(){
   bookName.value = inputName.value;
+  textdesc.value = descinput.value;
   if(postFile.value != ''){
     if(bookName.value != ''){
       if(descinput.value != ''){
