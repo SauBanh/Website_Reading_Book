@@ -8,18 +8,8 @@ class BooksController {
 
     var chapCount;
     var thisbook = await Book.findOne({slug: req.params.slug});
-
-    //check if user viewed this book
-    if(req.isAuthenticated()){
-      const isView = await View.findOne({bookid: thisbook._id.toString(), viewer: req.user._id.toString()});
-      if(!isView){
-        var viewer = new View();
-        viewer.bookid = thisbook._id.toString();
-        viewer.viewer = req.user._id.toString();
-        viewer.save();
-        await sleep(50);
-      }
-    }
+    var isView;
+    
 
     //count how many people has viewed this book
     const viewNumber = await View.find({bookid: thisbook._id.toString()}).count();    
@@ -38,6 +28,15 @@ class BooksController {
         if(userVipDate < today) {
           res.render('order', {session: req.user})
         } else {
+          //check if user viewed this book
+          isView = await View.findOne({bookid: thisbook._id.toString(), viewer: req.user._id.toString()});
+          if(!isView){
+            var viewer = new View();
+            viewer.bookid = thisbook._id.toString();
+            viewer.viewer = req.user._id.toString();
+            viewer.save();
+            await sleep(50);
+          }
           var chaps = await Chap.find({bookid: thisbook._id});
           chaps = chaps.map(chap => chap.toObject());
           chapCount = await Chap.find({bookid: thisbook._id}).count();
@@ -45,6 +44,17 @@ class BooksController {
         }
       }
     } else {
+      //check if user viewed this book
+      if(req.isAuthenticated()){
+        isView = await View.findOne({bookid: thisbook._id.toString(), viewer: req.user._id.toString()});
+        if(!isView){
+          var viewer = new View();
+          viewer.bookid = thisbook._id.toString();
+          viewer.viewer = req.user._id.toString();
+          viewer.save();
+          await sleep(50);
+        }
+      }
       var chaps = await Chap.find({bookid: thisbook._id});
       chaps = chaps.map(chap => chap.toObject());
       chapCount = await Chap.find({bookid: thisbook._id}).count();

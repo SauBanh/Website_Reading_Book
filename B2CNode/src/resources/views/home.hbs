@@ -97,20 +97,20 @@
                                         <div class="item_book_container_content">
                                             <div class="box_desc_item_book">
                                                 <h3 class="item_book_name">{{this.bookname}}</h3>
-                                            <p class="item_book_desc">Tac gia: {{this.author}}</p>
+                                            <p class="item_book_desc">Tác giả: {{this.author}}</p>
                                             </div>
                                             <div class="item_book_box_btn">
-                                                <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
+                                                <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
                                                 <div href="" class="item_book_link_follow">
                                                     <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
                                                 </div>
-                                                <span class="item_book_view">12k View</span>
+                                                <span class="item_book_view">{{this.viewCount}} lượt xem</span>
                                             </div>    
                                         </div>
                                     </div>                        
                                 </div>
                             {{/each}}
-                            {{else}}
+                        {{else}}
                             {{#each lstbook}}
                                 <div class="col l-2-4 m-4 c-6 ">
                                     <div class="item_book_content">
@@ -123,18 +123,18 @@
                                         <div class="item_book_container_content">
                                             <div class="box_desc_item_book">
                                                 <h3 class="item_book_name">{{this.bookname}}</h3>
-                                            <p class="item_book_desc">Tac gia: {{this.author}}</p>
+                                            <p class="item_book_desc">Tác giả: {{this.author}}</p>
                                             </div>
                                             <div class="item_book_box_btn">
                                                 {{#if this.vip}}
-                                                        <a href="/auth/login" class="item_book_read_now">Read Now</a>
+                                                        <a href="/auth/login" class="item_book_read_now">Đăng kí vip</a>
                                                     {{else}}
-                                                        <a href="/read/{{this.slug}}" class="item_book_read_now">Read Now</a>
+                                                        <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
                                                 {{/if}}
                                                 <div href="" class="item_book_link_follow">
                                                     <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
                                                 </div>
-                                                <span class="item_book_view">12k View</span>
+                                                <span class="item_book_view">{{this.viewCount}} lượt xem</span>
                                             </div>    
                                         </div>
                                     </div>                        
