@@ -142,13 +142,13 @@ class VnpayController{
                     user.save();
                     mysign = null;
 
-                    res.render('success', {code: vnp_Params['vnp_ResponseCode'], info: 'Thanh toan thanh cong!'});
+                    res.render('success', {session:req.user, code: vnp_Params['vnp_ResponseCode'], info: 'Thanh toan thanh cong!'});
                 }
             }
             else
-                res.render('success', {code: '97', info: 'Thanh toan khong thanh cong!'});
+                res.render('success', {session: req.user, code: '97', info: 'Thanh toan khong thanh cong!'});
         } else{
-            res.render('success', {code: '97', info: 'Loi khong xac dinh!'});
+            res.render('success', {session: req.user, code: '97', info: 'Loi khong xac dinh!'});
         }
     };
     

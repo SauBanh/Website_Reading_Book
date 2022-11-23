@@ -15,7 +15,7 @@ class UserController {
 
     async mybook(req, res) {
         if (req.isAuthenticated()) { 
-            var lstBook = await Book.find({email: req.user.email});
+            var lstBook = await Book.find({email: req.user.email, active: true});
             lstBook = lstBook.map(book => book.toObject());
             res.render('userLstBook', {session: req.user, lstBook});
         } else {

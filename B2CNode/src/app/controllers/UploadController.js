@@ -40,16 +40,22 @@ class UploadController {
     res.redirect('/upload/' + newBook.slug + '/addchap');
   }
 
-  chap(req, res) {
+  async chap(req, res) {
     if (req.isAuthenticated()) {     
-      res.render('uploadChaps', {name: req.params.bookslug, session: req.user});  
-    } else
-    res.redirect('/auth/login');
+      var thisbook = await book.findOne({slug: req.params.bookslug, active: true});
+      if(thisbook.email == req.user.email) {
+        res.render('uploadChaps', {name: req.params.bookslug, session: req.user});  
+      } else {
+        res.redirect('/');
+      }
+    } else {
+      res.redirect('/auth/login');
+    }
   }
 
   chapup(req, res) {
     //xử lí add thông tin vào db ở đây
-    book.findOne({ slug: req.params.bookslug }, function(err, book) {
+    book.findOne({slug: req.params.bookslug, active: true}, function(err, book) {
       if(!book) { res.redirect('/?ko-co-sach'); }
       const formData = req.body;
       formData.bookid = book._id.toString();
