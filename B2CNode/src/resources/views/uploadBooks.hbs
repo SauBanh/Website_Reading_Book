@@ -74,15 +74,6 @@
   var checkvip = document.getElementById('checkvipform');
   var textdesc = document.getElementById('txtdescform');
 
-  //kiểm tra trạng thái check vip 
-  valueVip.onclick = function(){
-    if(valueVip.checked == true){
-      checkvip.checked = true;
-    }else{
-      checkvip.checked = false;
-    }
-  }
-
 
   spanInput.onclick = function(){
     postFile.click();
@@ -116,11 +107,20 @@ function upLoadFile(){
   postSubmit.click();
 }
 
+function checkbookvip(){
+  if(valueVip.checked == true){
+      checkvip.checked = true;
+    }else{
+      checkvip.checked = false;
+    }
+}
+
 btnUpload.onclick = function(){
   bookName.value = inputName.value;
   if(postFile.value != ''){
     if(bookName.value != ''){
       if(descinput.value != ''){
+        checkbookvip();
         upLoadFile()
         alert('Tạo truyện thành công!')
       }else{
