@@ -15,11 +15,8 @@
         border: 1px solid #fff;
         border-radius: 10px;
         padding: 15px 30px;
-        width: 500px;
+        width: 100%;
         justify-content: space-between;
-    }
-    .box_book_page_userLstBook:hover{
-        background-color: rgb(89, 89, 89);
     }
     .box_book_page_userLstBook h3{
         font-size: 20px;
@@ -29,10 +26,12 @@
         text-decoration: none;
         color: #fff;
     }
-    @media (max-width: 46.1875em){
-        .box_book_page_userLstBook{
-            width: 100%
-        }
+    .btn_book{
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
     }
 </style>
 
@@ -42,8 +41,11 @@
     {{#each lstBook}}
         <a href="/read/{{slug}}">
             <div class="box_book_page_userLstBook">
-                <h3>Tên sách: {{bookname}}</h3>        
-                <a href="/upload/{{slug}}/addchap">Thêm chap</a>        
+                <h3>Tên sách: {{bookname}}</h3>     
+                <div class="btn_book">
+                    <a href="/upload/{{slug}}/addchap">Thêm chap</a>
+                    <a style="color: #eb5151;" href="#">Xóa sách</a>
+                </div>   
             </div>        
         </a>
         {{else}}

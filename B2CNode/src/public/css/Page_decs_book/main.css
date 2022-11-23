@@ -102,7 +102,7 @@
 
 .box_list_chapter{
     border: 1px solid #fff;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     max-height: 300px;
     overflow: auto;
@@ -116,7 +116,7 @@
 
 /* width */
 .box_list_chapter::-webkit-scrollbar {
-    width: 10px;
+    width: 100%;
   }
   
   /* Track */
