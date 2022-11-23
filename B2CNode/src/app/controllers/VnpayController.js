@@ -99,25 +99,33 @@ class VnpayController{
                     const usersecc = req.user;
                     fromQuery.username = usersecc.username;
                     fromQuery.email = usersecc.email;
-                    const buyhistory = new buyHistory(fromQuery);
-                    buyhistory.save();
+                    
                     var months = 0;
+                    var amountPayed = 0;
                     switch (req.query.vnp_Amount) {
                         case '5000000':
                             months = 1;
+                            amountPayed = 50000;
                             break;
 
                         case '15000000':
                             months = 3;
+                            amountPayed = 150000;
                             break;
 
                         case '30000000':
                             months = 6;
+                            amountPayed = 300000;
                             break;
 
                         default:
                             break;
                     }
+
+                    fromQuery.vnp_Amount = amountPayed;
+                    const buyhistory = new buyHistory(fromQuery);
+                    buyhistory.save();
+
                     const user = await User.findById(usersecc._id);
                     const today = new Date(Date.now());
                     var vipday;

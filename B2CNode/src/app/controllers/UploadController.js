@@ -24,14 +24,18 @@ class UploadController {
     const books = await book.find({}).count() + 1;
     formData.pic = '/b2c_data/' + "B2C" + '_' + books + "/" + req.user._id.toString() + removeVietnameseTones(req.file.originalname);
     formData.author = req.user.username;
-    formData.decs = req.body.desc_book_upload;
+    formData.decs = req.body.desc;
     formData.email = req.user.email;
     formData.slug = "B2C" + '_' + books;
-    const newBook = new book(formData);
-    const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
-    newBook.categories = cater;
+    formData.vip = false;
+    if(req.body.vip == 'true'){
+      formData.vip = true;
+    }
+    const newBook = new book(formData);   
+    // const cater = ["saubanhancut", "khong an cut dau", "ănc  o m", "more"];
+    // newBook.categories = cater;
     newBook.save();
-    await sleep(200);
+    await sleep(100);
     res.redirect('/upload/' + newBook.slug + '/addchap');
   }
 
