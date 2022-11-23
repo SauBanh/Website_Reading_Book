@@ -52,6 +52,7 @@
   <input type="text" autocomplete="off" class="form-input" id="bookname" placeholder="Book name" name="bookname"> 
   <input type="file" id="post_input_file" name="pic" accept="image/*" />
   <input type="checkbox" name="" id="checkvipform">
+  <input type="text" id="txtdescform">
   <input type="submit" id="post_submit" value="Upload Photo"/>
 </form>
 </div>
@@ -61,6 +62,7 @@
   var inputName = document.getElementById('book_name');
   var previewImg = document.getElementById('preview_img_book');
   var valueVip = document.getElementById('check_vip');
+  var descinput = document.getElementById('desc_book_upload');
   var typeImg = ["jpeg", "png", "jpg"];// các type ảnh
 
   var getName = '';
@@ -70,6 +72,7 @@
   var bookName = document.getElementById('bookname');
   var postFile = document.getElementById('post_input_file');
   var checkvip = document.getElementById('checkvipform');
+  var textdesc = document.getElementById('txtdescform');
 
   //kiểm tra trạng thái check vip 
   valueVip.onclick = function(){
@@ -117,9 +120,12 @@ btnUpload.onclick = function(){
   bookName.value = inputName.value;
   if(postFile.value != ''){
     if(bookName.value != ''){
-      upLoadFile()
-      alert('Tạo truyện thành công!')
-
+      if(descinput.value != ''){
+        upLoadFile()
+        alert('Tạo truyện thành công!')
+      }else{
+        alert('Chưa nhập mô tả sách')
+      }
     }else{
       alert('Chưa nhập tên truyện')
     }
