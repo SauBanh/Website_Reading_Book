@@ -100,7 +100,15 @@
                                             <p class="item_book_desc">{{this.decs}}</p>
                                             </div>
                                             <div class="item_book_box_btn">
-                                                <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
+                                                {{#if this.vip}}
+                                                    {{#if ../expire}}
+                                                        <a href="/order" class="item_book_read_now">Đăng kí vip</a>
+                                                    {{else}}
+                                                        <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
+                                                    {{/if}}
+                                                {{else}}
+                                                    <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
+                                                {{/if}}
                                                 <div href="" class="item_book_link_follow">
                                                     <i class="fa-regular fa-bookmark item_book_icon_follow"></i>
                                                 </div>
@@ -127,7 +135,7 @@
                                             </div>
                                             <div class="item_book_box_btn">
                                                 {{#if this.vip}}
-                                                        <a href="/auth/login" class="item_book_read_now">Đăng kí vip</a>
+                                                        <a href="/auth/login" class="item_book_read_now">Đăng nhập</a>
                                                     {{else}}
                                                         <a href="/read/{{this.slug}}" class="item_book_read_now">Đọc ngay</a>
                                                 {{/if}}

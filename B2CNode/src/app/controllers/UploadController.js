@@ -17,7 +17,7 @@ class UploadController {
   photo(req, res) {
     if (req.isAuthenticated()) {   
       if(req.user.uploader || req.user.admin){
-        res.render('uploadBooks', {session: req.user});  
+        res.render('uploadBooks', {session: req.user, notFirstTime: false});  
       } else {
         res.redirect('/'); 
       }  
@@ -67,11 +67,11 @@ class UploadController {
       if(!book) { res.redirect('/?ko-co-sach'); } 
       else 
       {
-        if(req.body.chapname == "delete") { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true})}
+        if(req.body.chapname == "delete") { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true, notFirstTime: true})}
         else
         {
           var dbChap = await chapter.findOne({bookid: book._id.toString() ,chapname: req.body.chapname})
-          if(dbChap) { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true})}
+          if(dbChap) { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true, notFirstTime: true})}
           else
           {
             const formData = req.body;
@@ -85,7 +85,7 @@ class UploadController {
               newChap.imglinks.push(data);
             });
             newChap.save();
-            res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: false});
+            res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: false, notFirstTime: true});
           }
         }
       }

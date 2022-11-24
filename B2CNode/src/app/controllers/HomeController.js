@@ -36,8 +36,16 @@ class HomeController {
     var top5book = await Book.find({active: true}).sort({viewCount: -1}).limit(5);
     top5book = top5book.map(book => book.toObject());
 
+    //check vip cua nguoi dung da het han chua
+    var expire;
+    if(req.isAuthenticated()) {
+      const userVipDate = new Date(req.user.vipexpire);
+      const today = new Date(Date.now());
+      if(userVipDate < today) { expire = true; } else { expire = false; }
+    } else { expire = false; }
+
     lstbook = lstbook.map(book => book.toObject());
-    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books, top5book}); 
+    res.render('home', {session: req.user, lstbook, lastpage, pagenow, books, top5book, expire}); 
   }
 
   sessionapi(req, res) {
