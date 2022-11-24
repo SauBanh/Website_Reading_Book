@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const Book = require('../models/Books');
+
 const user = new Schema({
     email: {type: String, default: null, unique: true},
     username: {type: String, default: null},
@@ -15,5 +17,9 @@ const user = new Schema({
 },  {
     timestamps: true,
 });
+
+// user.virtual('totalBooks').get( async function(){
+//     return await Book.findOne({email: this.email}).count();
+// })
 
 module.exports = mongoose.model('user', user);
