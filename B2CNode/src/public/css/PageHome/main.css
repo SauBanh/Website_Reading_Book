@@ -820,6 +820,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    width: 100%;
 }
 
 .item_book_box_btn{
@@ -834,10 +835,10 @@ i.fa-solid.fa-circle.notification_header_viewed{
 
 .item_book_name{
     font-size: 14px;
-    height: 45px;
+    height: 30px;
     color: #fff;
     font-weight: 600;
-    width: 200px;
+    width: 90%;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -846,8 +847,15 @@ i.fa-solid.fa-circle.notification_header_viewed{
 
 .item_book_desc{
     font-size: 12px;
-    text-align: center;
+    line-height: 22px;
+    text-align: left;
     color: #fff;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+   -webkit-box-orient: vertical;
 }
 
 .item_book_read_now{
