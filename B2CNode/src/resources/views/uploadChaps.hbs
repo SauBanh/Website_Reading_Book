@@ -12,6 +12,11 @@
          <input type="text" autocomplete="off" class="form-input" id="chapname" placeholder="Chap name" name="chapname"> 
          <input type="file" onchange="previeẉ̣̣()" hidden id="input_chap" name="myFile" multiple/>
          <input type="submit" id="submit_data" hidden value="Upload a file"/>
+         {{#if err}}
+            <p>Tên không hợp lệ hoặc đã tồn tại!</p>
+         {{else}}
+            p>Tạo chap thành công!</p>
+         {{/if}}
       </form>
       <div class="btn_select_img"><i class="fa-solid fa-upload"></i>Choose A Photo</div>
       <div class="submit_chap">

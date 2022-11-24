@@ -63,21 +63,33 @@ class UploadController {
 
   chapup(req, res) {
     //xử lí add thông tin vào db ở đây
-    book.findOne({slug: req.params.bookslug, active: true}, function(err, book) {
-      if(!book) { res.redirect('/?ko-co-sach'); }
-      const formData = req.body;
-      formData.bookid = book._id.toString();
-      formData.chaplink = book.slug + "/" + removeVietnameseTones(req.body.chapname);
-      formData.chapslug = removeVietnameseTones(req.body.chapname);
-      const newChap = new chapter(formData);
-      //link xong
-      req.files.forEach(element  =>{
-        var data = new String( formData.chaplink + "/" + removeVietnameseTones(element.originalname));
-        newChap.imglinks.push(data);
-      });
-      newChap.save();
+    book.findOne({slug: req.params.bookslug, active: true}, async function(err, book) {
+      if(!book) { res.redirect('/?ko-co-sach'); } 
+      else 
+      {
+        if(req.body.chapname == "delete") { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true})}
+        else
+        {
+          var dbChap = await chapter.findOne({bookid: book._id.toString() ,chapname: req.body.chapname})
+          if(dbChap) { res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: true})}
+          else
+          {
+            const formData = req.body;
+            formData.bookid = book._id.toString();
+            formData.chaplink = book.slug + "/" + removeVietnameseTones(req.body.chapname);
+            formData.chapslug = removeVietnameseTones(req.body.chapname);
+            const newChap = new chapter(formData);
+            //link xong
+            req.files.forEach(element  =>{
+              var data = new String( formData.chaplink + "/" + removeVietnameseTones(element.originalname));
+              newChap.imglinks.push(data);
+            });
+            newChap.save();
+            res.render ('uploadChaps',{name: req.params.bookslug, session: req.user, err: false});
+          }
+        }
+      }
     })
-    res.redirect('/');
   }
 }
 
