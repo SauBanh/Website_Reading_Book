@@ -166,9 +166,10 @@
                                 {{#if session.admin}}
                                     <li class="item_box_info_user"><a href="/admin" class="link_box_info_user">Quản lí</a></li>   
                                     <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>                               
-                                {{/if}}
-                                {{#if session.uploader}}
-                                    <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>
+                                {{else}}
+                                    {{#if session.uploader}}
+                                        <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>
+                                    {{/if}}
                                 {{/if}}
                             <li class="item_box_info_user"><a href="/auth/logout" class="link_box_info_user">Đăng xuất</a></li>
                         {{else}}
