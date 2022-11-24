@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&amp;family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
     <title>Admin B2C</title>
     <style>
@@ -66,6 +67,7 @@
             line-height: 50px;
             height: 50px;
             color: #fff;
+            cursor: pointer;
         }
         .active_left{
             background-color: #e14d43;
@@ -95,6 +97,8 @@
             text-align: center;
             align-items: center;
             padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #000;
         }
         .box_content_top{
             width: 100%;
@@ -106,13 +110,44 @@
             height: 100%;
             justify-content: center;
             align-items: center;
+            background-color: #fff;
         }    
         .active_top_pane{
             display: flex;
         }
         .active_top{
             display: block;
-            background-color: aqua;
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        .list{
+            height: 100%;
+            width: 100%;
+            list-style: none;
+        }
+        .item{
+            width: 100%;
+            padding: 10px 20px;
+            border-bottom: 1px solid #000;
+        }
+        .item:hover{
+            background-color: #bfb3ca42;
+        }
+        .box_item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .status_account{
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .disable_account:hover{
+            color: red;
+        }
+        .active_account:hover{
+            color: green;
         }
     </style>
 </head>
@@ -142,20 +177,184 @@
                     </ul>
                     <div class="box_content_top">
                         {{!-- tab hiện thị  --}}
-                        <div class="pane_tab_top_app active_top_pane" style="background-color: #000;">
-                            Tât cả tài khoản người dùng
+                        <div class="pane_tab_top_app active_top_pane">
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         {{!-- tab hiện thị  --}}
-                        <div class="pane_tab_top_app" style="background-color: rgb(106, 32, 32);">
-                            Tài khoản có quyền đăng sách
+                        <div class="pane_tab_top_app">
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         {{!-- tab hiện thị  --}}
-                        <div class="pane_tab_top_app" style="background-color: rgb(32, 5, 83);">
-                            Tài khoản admin
+                        <div class="pane_tab_top_app">
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         {{!-- tab hiện thị  --}}
-                        <div class="pane_tab_top_app" style="background-color: rgb(123, 18, 95);">
-                            Tài khoản bị disable
+                        <div class="pane_tab_top_app">
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số sách đã đăng: 100</span>
+                                        <a class="status_account active_account">Active</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -167,10 +366,10 @@
                         <li class="item_tab_top_app_qltr">Truyện bị disable</li>
                     </ul>
                     <div class="box_content_top">
-                        <div class="pane_tab_top_app_qltr active_top_pane" style="background-color: rgb(5, 138, 76);">
+                        <div class="pane_tab_top_app_qltr active_top_pane">
                             Tât cả tài khoản người dùng
                         </div>
-                        <div class="pane_tab_top_app_qltr" style="background-color: rgb(108, 165, 16);">
+                        <div class="pane_tab_top_app_qltr">
                             Tài khoản có quyền đăng sách
                         </div>
                     </div>
