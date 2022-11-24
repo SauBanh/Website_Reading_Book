@@ -36,12 +36,12 @@
                 <h3 class="book_header_title"><i class="fa-solid fa-database"></i>Danh sách các chương</h3>
                 <ul class="box_list_chapter">
                     {{#each lstchap}}
-                    <li class="item_chapter">
-                        <a href="/read/{{chaplink}}" class="item_link_chapter">
+                    <li class="item_chapter" style="display: flex;">
+                        <a href="/read/{{chaplink}}" class="item_link_chapter" style=" width: 80%;">
                             <span class="number_chapter">{{chapname}}</span>
                             <span class="date_create_chap">{{createdAt}}</span>
-                            <a href="/read/{{chaplink}}/delete" style="color: red; display: block;" class="btn_delete_chap">Xóa chap</a>
                         </a>
+                        <a href="/read/{{chaplink}}/delete" style="flex: 1; text-align: center; text-decoration: none; color: red" class="btn_delete_chap">Xóa chap</a>
                     </li>
                     {{/each}}
                 </ul>
