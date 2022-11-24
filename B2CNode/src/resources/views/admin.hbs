@@ -138,16 +138,19 @@
             align-items: center;
             justify-content: space-between;
         }
+        .disable_account{
+            color: red;
+        }
+        .active_account{
+            color: green;
+        }
         .status_account{
             cursor: pointer;
             font-weight: 600;
             text-decoration: none;
         }
-        .disable_account:hover{
-            color: red;
-        }
-        .active_account:hover{
-            color: green;
+        .status_account:hover{
+            color: #000;
         }
     </style>
 </head>
@@ -367,10 +370,94 @@
                     </ul>
                     <div class="box_content_top">
                         <div class="pane_tab_top_app_qltr active_top_pane">
-                            Tât cả tài khoản người dùng
+                            {{!-- tổng truyện  --}}
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="pane_tab_top_app_qltr">
-                            Tài khoản có quyền đăng sách
+                            {{!-- truyện bị disable  --}}
+                            <ul class="list">
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện abc</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện abc</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Tên truyện abc</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="box_item">
+                                        <div class="box_user">
+                                            <h4 class="user_name">Nguyễn Tuấn Anh Đẹp Trai</h4>
+                                            <span class="email">nguyetuananhdeitrai@gmail.com</span>
+                                        </div>
+                                        <span>Tổng số chap: 100</span>
+                                        <a class="status_account disable_account">Disable</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
