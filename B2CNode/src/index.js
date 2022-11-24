@@ -70,7 +70,7 @@ passport.use(new LocalStrategy(function(Email, password, done) {
 passport.use(new FacebookStrategy({
   clientID: '445442411057022',
   clientSecret: 'f0c13772909c70765206b6e636b31676',
-  callbackURL: 'https://b2cbook.herokuapp.com/auth/login/facebook/callback',
+  callbackURL: 'http://localhost:8000/auth/login/facebook/callback',
   profileFields: ['id', 'displayName', 'emails'],
   enableProof: true,
 },
