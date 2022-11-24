@@ -16,7 +16,11 @@ class UploadController {
 
   photo(req, res) {
     if (req.isAuthenticated()) {   
-      res.render('/', {session: req.user});  
+      if(req.user.uploader || req.user.admin){
+        res.render('uploadBooks', {session: req.user});  
+      } else {
+        res.redirect('/'); 
+      }  
     } else
     res.redirect('/auth/login');
   }
