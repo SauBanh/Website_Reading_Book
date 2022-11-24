@@ -37,10 +37,12 @@
                 <ul class="box_list_chapter">
                     {{#each lstchap}}
                     <li class="item_chapter">
-                        <a href="/read/{{chaplink}}" class="item_link_chapter">
-                            <span class="number_chapter">{{chapname}}</span>
-                            <span class="date_create_chap">{{createdAt}}</span>
-                            <a href="/read/{{chaplink}}/delete" style="color: red; display: block;" class="btn_delete_chap">Xóa chap</a>
+                        <a href="/read/{{this.chaplink}}" class="item_link_chapter">
+                            <span class="number_chapter">{{this.chapname}}</span>
+                            <span class="date_create_chap">{{this.createdAt}}</span>
+                            {{#if ../thisUser}}
+                            <a href="/read/{{this.chaplink}}/delete" style="color: red; display: block;" class="btn_delete_chap">Xóa chap</a>
+                            {{/if}}
                         </a>
                     </li>
                     {{/each}}

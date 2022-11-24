@@ -42,7 +42,10 @@ class BooksController {
           var chaps = await Chap.find({bookid: thisbook._id});
           chaps = chaps.map(chap => chap.toObject());
           chapCount = await Chap.find({bookid: thisbook._id}).count();
-          res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+          var thisUser; 
+          console.log(req.user.email == thisbook.email);
+          if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; }
+          res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
         }
       }
     } else {
@@ -63,7 +66,11 @@ class BooksController {
       var chaps = await Chap.find({bookid: thisbook._id});
       chaps = chaps.map(chap => chap.toObject());
       chapCount = await Chap.find({bookid: thisbook._id}).count();
-      res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+      var thisUser; 
+      if(req.isAuthenticated()){
+        if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; };
+      } else { thisUser = false; };
+      res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
     }
 
   }
@@ -128,7 +135,9 @@ class BooksController {
           var chaps = await Chap.find({bookid: thisbook._id});
           if((chaps.findIndex(({chapslug})=>chapslug==req.params.chap) - 1) < 0) {
             chaps = chaps.map(chap => chap.toObject());
-            res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+            var thisUser;
+            if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; }
+            res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
           } else {
             var previousChap = chaps[chaps.findIndex(({chapslug})=>chapslug==req.params.chap) - 1];
             res.render('chap', {session: req.user, thisbook: thisbook.toObject(), chaps: previousChap.toObject()});
@@ -141,7 +150,11 @@ class BooksController {
       var chaps = await Chap.find({bookid: thisbook._id});
       if((chaps.findIndex(({chapslug})=>chapslug==req.params.chap) - 1) < 0) {
         chaps = chaps.map(chap => chap.toObject());
-        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+        var thisUser; 
+        if(req.isAuthenticated()){
+          if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; };
+        } else { thisUser = false; };
+        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
       } else {
         var previousChap = chaps[chaps.findIndex(({chapslug})=>chapslug==req.params.chap) - 1];
         res.render('chap', {session: req.user, thisbook: thisbook.toObject(), chaps: previousChap.toObject()});
@@ -169,7 +182,9 @@ class BooksController {
           var chaps = await Chap.find({bookid: thisbook._id});
           if((chaps.findIndex(({chapslug})=>chapslug==req.params.chap) + 1) >= chapCount) {
             chaps = chaps.map(chap => chap.toObject());
-            res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+            var thisUser;
+            if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; }
+            res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
           } else {
             var nextChap = chaps[chaps.findIndex(({chapslug})=>chapslug==req.params.chap) + 1];
             res.render('chap', {session: req.user, thisbook: thisbook.toObject(), chaps: nextChap.toObject()});
@@ -182,7 +197,11 @@ class BooksController {
       var chaps = await Chap.find({bookid: thisbook._id});
       if((chaps.findIndex(({chapslug})=>chapslug==req.params.chap) + 1) >= chapCount) {
         chaps = chaps.map(chap => chap.toObject());
-        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+        var thisUser; 
+        if(req.isAuthenticated()){
+          if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; };
+        } else { thisUser = false; };
+        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
       } else {
         var nextChap = chaps[chaps.findIndex(({chapslug})=>chapslug==req.params.chap) + 1];
         res.render('chap', {session: req.user, thisbook: thisbook.toObject(), chaps: nextChap.toObject()});
@@ -206,7 +225,9 @@ class BooksController {
         var chaps = await Chap.find({bookid: thisbook._id});
         chaps = chaps.map(chap => chap.toObject());
         //3. trả về
-        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount});
+        var thisUser;
+        if(req.user.email == thisbook.email) { thisUser = true; } else { thisUser = false; }        
+        res.render('book', {session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser});
         });
       } else {
         res.redirect('/');
