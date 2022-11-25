@@ -159,7 +159,9 @@ const server = app.listen(port, () => console.log(`Example app ${port}`));
 const io = require('socket.io')(server)
 
 io.on('connection', (socket) => {
-  console.log(`new connection at ${socket.id}`)
+  socket.on('comment', (data) => {
+    socket.broadcast.emit('comment', data);
+  })
 })
 
 //https.createServer({options}, app).listen(port, () => console.log(`Example app ${port}`));
