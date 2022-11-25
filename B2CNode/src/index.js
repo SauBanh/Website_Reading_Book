@@ -155,5 +155,11 @@ route(app);
 //   cert: fs.readFileSync(path.join(__dirname, '/security/cert.pem'))
 // };
 
-app.listen(port, () => console.log(`Example app ${port}`));
+const server = app.listen(port, () => console.log(`Example app ${port}`));
+const io = require('socket.io')(server)
+
+io.on('connection', (socket) => {
+  console.log(`new connection at ${socket.id}`)
+})
+
 //https.createServer({options}, app).listen(port, () => console.log(`Example app ${port}`));
