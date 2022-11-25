@@ -10,11 +10,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var lstUser = await User.find({});
-        lstUser = lstUser.map( async function(user) {
-          user.totalBooks = await Book.findOne({email: user.email}).count();
-          user.toObject({});
-        });
-        console.log(lstUser[0].totalBooks);
+        lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser});
       }
       else

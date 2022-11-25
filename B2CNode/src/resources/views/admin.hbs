@@ -205,8 +205,12 @@
                                             <h4 class="user_name">{{this.username}}</h4>
                                             <h4 class="email">{{this.email}}</h4>
                                         </div>
-                                        <h4>Tổng số sách đã đăng: {{this.totalBooks}}</h4>
-                                        <a class="status_account disable_account">Disable</a>
+                                        <h4>Ngày tạo: {{toDate this.createdAt}}</h4>
+                                        {{#if this.active}}
+                                            <a class="status_account disable_account">Disable</a>
+                                        {{else}}
+                                            <a class="status_account active_account">Active</a>
+                                        {{/if}}
                                     </div>
                                 </li>
                                 {{/each}}

@@ -153,14 +153,18 @@
                 <div class="checkvip_header center hide_on_mobile"><a href="/auth/login"><i class="fa-regular fa-gem checkvip_header_icon"></i></a></div>
             {{/if}}
             <div class="user_header center hide_on_mobile">
-                <img class="user_header_img" src="/img/avata.jpg">
+                {{#if session}}
+                    <img class="user_header_img" src="/img/avata.gif">
+                {{else}}
+                    <img class="user_header_img" src="/img/notlogin.png">
+                {{/if}}
                 <div class="box_info_user">
                     <ul class="list_box_info_user">
                         {{#if session}}
                             <li class="item_box_info_user"><a href="/user/info" class="link_box_info_user name_account">
                                 {{session.username}}
                             </a></li>
-                            <li class="item_box_info_user"><a href="#" class="link_box_info_user">Vip expire in: {{session.vipexpire}}</a></li>
+                            <li class="item_box_info_user"><a href="#" class="link_box_info_user">Ngày hết hạn vip: {{toDate session.vipexpire}}</a></li>
                             {{#if session.admin}}
                                     <li class="item_box_info_user"><a href="/user/book" class="link_box_info_user">Truyện đã đăng</a></li>                             
                                 {{else}}
@@ -190,20 +194,31 @@
                 <div class="box_notify_mobile ">
                     <ul class="box_notify_mobile_list">
                         {{#if session}}
-                            <li class="box_notify_mobile_item"><a href="/user" class="box_notify_mobile_link">
+                            <li class="item_box_info_user"><a href="/user/info" class="link_box_info_user name_account">
                                 {{session.username}}
                             </a></li>
+                            <li class="item_box_info_user"><a href="#" class="link_box_info_user">Ngày hết hạn vip: {{toDate session.vipexpire}}</a></li>
+                            {{#if session.admin}}
+                                    <li class="item_box_info_user"><a href="/user/book" class="link_box_info_user">Truyện đã đăng</a></li>                             
+                                {{else}}
+                                    {{#if session.uploader}}
+                                        <li class="item_box_info_user"><a href="/user/book" class="link_box_info_user">Truyện đã đăng</a></li>
+                                    {{/if}}
+                                {{/if}}
+                            <li class="item_box_info_user"><a href="/user/history" class="link_box_info_user">Lịch sử thanh toán</a></li>
+                                {{#if session.admin}}
+                                    <li class="item_box_info_user"><a href="/admin" class="link_box_info_user">Quản lí</a></li>   
+                                    <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>                               
+                                {{else}}
+                                    {{#if session.uploader}}
+                                        <li class="item_box_info_user"><a href="/upload" class="link_box_info_user">Đăng truyện</a></li>
+                                    {{/if}}
+                                {{/if}}
+                            <li class="item_box_info_user"><a href="/auth/logout" class="link_box_info_user">Đăng xuất</a></li>
                         {{else}}
-                        <li class="box_notify_mobile_item"><a href="/auth/login" class="box_notify_mobile_link">Đăng nhập</a></li>
-                        <li class="box_notify_mobile_item"><a href="/auth/signup" class="box_notify_mobile_link">Đăng ký</a></li>
+                            <li class="item_box_info_user"><a class="link_box_info_user name_account" href="/auth/login">Đăng nhập</a></li>
+                            <li class="item_box_info_user"><a href="/auth/signup" class="link_box_info_user name_account">Đăng ký</a></li>
                         {{/if}}
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Sách của tôi</a></li>
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Sách đang theo dõi</a></li>
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Vip</a></li>
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Thể loại</a></li>
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Tìm sách</a></li>
-                        <li class="box_notify_mobile_item"><a href="#" class="box_notify_mobile_link">Lịch sử</a></li>
-                        <li class="box_notify_mobile_item"><a href="/auth/logout" class="box_notify_mobile_link">Đăng xuất</a></li>
                     </ul>
                     <div class="close_box_notify_mobile"><i class="fa-sharp fa-solid fa-circle-xmark icon_close"></i></div>
                 </div>

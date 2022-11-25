@@ -39,7 +39,7 @@
                     <li class="item_chapter" style="display: flex;">
                         <a href="/read/{{this.chaplink}}" class="item_link_chapter" style=" width: 80%;">
                             <span class="number_chapter">{{this.chapname}}</span>
-                            <span class="date_create_chap">{{this.createdAt}}</span>                            
+                            <span class="date_create_chap">Ngày đăng: {{toDate this.createdAt}}</span>                            
                         </a>
                         {{#if ../thisUser}}
                             <a href="/read/{{this.chaplink}}/delete" style="flex: 1; color: red; display: block; text-decoration: none; text-align: center;" class="btn_delete_chap">Xóa chap</a>

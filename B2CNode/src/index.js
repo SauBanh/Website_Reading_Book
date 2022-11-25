@@ -15,6 +15,8 @@ const FacebookStrategy = require('passport-facebook');
 
 const User = require('./app/models/User');
 
+const dateFormat = require('dateformat');
+
 //add file dinh tuyen
 const route = require('./routes');
 
@@ -45,6 +47,11 @@ app.use(passport.authenticate('session'));
 app.engine('hbs', handlebars.engine({extname:'.hbs'}));
 app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'resources/views'));
+//using registerHelper
+const hbs = require('handlebars');
+hbs.registerHelper('toDate', function(value) {
+  return dateFormat(value, 'dd/mm/yyyy');
+})
 
 //xac thuc dang nhap user-password
 passport.use(new LocalStrategy(function(Email, password, done) {
@@ -71,11 +78,12 @@ passport.use(new FacebookStrategy({
   clientID: '445442411057022',
   clientSecret: 'f0c13772909c70765206b6e636b31676',
   callbackURL: 'http://localhost:8000/auth/login/facebook/callback',
-  profileFields: ['id', 'displayName', 'emails'],
+  profileFields: ['id', 'displayName', 'emails', 'picture'],
   enableProof: true,
 },
 function verify(accessToken, refreshToken, profile, done) {
   process.nextTick(function () {
+    console.log(profile);
     User.findOne({ $or:[{email: (profile.emails && profile.emails[0]) ? profile.emails[0].value : '' }, {fbid: profile.id}] }, function(err, user) {
       if (err) { return done(err); }
       if (!user) { 
