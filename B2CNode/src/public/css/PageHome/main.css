@@ -463,7 +463,7 @@ i.fa-solid.fa-circle.notification_header_viewed{
 }
 
 .item_notify_header{
-    
+    border-top: 1px solid #fff;
 }
 
 .item_notify_header:hover{
