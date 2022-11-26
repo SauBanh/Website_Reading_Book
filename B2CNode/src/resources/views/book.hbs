@@ -106,6 +106,7 @@
             if(!comment){
                 return
             }
+            textArea.value = '';
             postComment(comment);
         });
 
@@ -129,11 +130,11 @@
             var lTag = document.createElement('li');
             lTag.classList.add('comment');
             var markUp = `
-                                    <div>
-                                        <h5>${data.username}</h5>
-                                        <p>${data.comment}</p>
-                                        <p>${data.timeFromNow}</p>
-                                    </div>
+                            <div>
+                                <h5>${data.username}</h5>
+                                <p>${data.comment}</p>
+                                <p>${data.timeFromNow}</p>
+                            </div>
                         `
             lTag.innerHTML = markUp;
             commentBox.prepend(lTag);

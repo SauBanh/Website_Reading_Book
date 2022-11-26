@@ -65,6 +65,7 @@
         var lTag = document.createElement('li');
         lTag.classList.add('item_notify_header');
         var markUp = `
+                        <li class="item_notify_header item_notify_header_viewed">
                             <a href="${notify.booklink}" class="link_item_notify_header">
                                 <img class="img_item_notify_header" src="${notify.bookImg}" alt="">
                                 <div class="content_item_notify_header">
@@ -76,6 +77,7 @@
                                     </div>
                                 </div>
                             </a>
+                        </li>
                   `
         lTag.innerHTML = markUp;
         notifyBox.append(lTag);
