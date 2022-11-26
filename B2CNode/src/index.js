@@ -16,6 +16,7 @@ const FacebookStrategy = require('passport-facebook');
 const User = require('./app/models/User');
 
 const dateFormat = require('dateformat');
+const moment = require('moment');
 
 //add file dinh tuyen
 const route = require('./routes');
@@ -51,6 +52,10 @@ app.set('views', path.join(__dirname,'resources/views'));
 const hbs = require('handlebars');
 hbs.registerHelper('toDate', function(value) {
   return dateFormat(value, 'dd/mm/yyyy');
+})
+
+hbs.registerHelper('toFromNow', function(value) {
+  return moment(value).fromNow();
 })
 
 //xac thuc dang nhap user-password
@@ -161,6 +166,9 @@ const io = require('socket.io')(server)
 io.on('connection', (socket) => {
   socket.on('comment', (data) => {
     socket.broadcast.emit('comment', data);
+  })
+  socket.on('notify', (data) => {
+    socket.broadcast.emit('notify', data);
   })
 })
 

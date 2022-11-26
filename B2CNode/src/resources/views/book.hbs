@@ -76,6 +76,7 @@
                                 <div>
                                     <h5>{{this.username}}</h5>
                                     <p>{{this.comment}}</p>
+                                    <p>{{toFromNow this.createdAt}}</p>
                                 </div>
                             </li>
                             {{/each}}
@@ -90,6 +91,7 @@
     </div>
 </div>
 <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+<script type = "text/JavaScript" src=" https://MomentJS.com/downloads/moment.js"></script>
 <script>
     var socket = io();
 
@@ -112,7 +114,8 @@
             var data = {
                 username: textArea.name,
                 comment: comment,
-                bookid: btnSub.name
+                bookid: btnSub.name,
+                timeFromNow: moment().fromNow()
             }
             textArea.nodeValue = "";
             appendToDom(data);
@@ -129,6 +132,7 @@
                                     <div>
                                         <h5>${data.username}</h5>
                                         <p>${data.comment}</p>
+                                        <p>${data.timeFromNow}</p>
                                     </div>
                         `
             lTag.innerHTML = markUp;
