@@ -17,6 +17,14 @@ router.get('/:tab/:user/enable_user', ctl.enableAccount);
 
 router.get('/:tab/:user/disable_user', ctl.disableAccount);
 
+router.get('/:tab/:user/enable_post', ctl.enablePost);
+
+router.get('/:tab/:user/disable_post', ctl.disablePost);
+
+router.get('/:tab/:user/enable_admin', ctl.enableAdmin);
+
+router.get('/:tab/:user/disable_admin', ctl.disableAdmin);
+
 router.get('/all_book', ctl.allBook);
 
 router.get('/vip_book', ctl.vipBook);

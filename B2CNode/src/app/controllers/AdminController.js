@@ -9,7 +9,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'all_user';
-        var lstUser = await User.find({email: { $ne: req.user.email }});
+        var lstUser = await User.find({email: { $ne: req.user.email }}).sort({active: -1});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -30,7 +30,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'post_user';
-        var lstUser = await User.find({uploader: true, email: { $ne: req.user.email }});
+        var lstUser = await User.find({active: true, email: { $ne: req.user.email }}).sort({active: -1});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -51,7 +51,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'admin_user';
-        var lstUser = await User.find({admin: true, email: { $ne: req.user.email }});
+        var lstUser = await User.find({active: true, email: { $ne: req.user.email }}).sort({active: -1});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -91,11 +91,13 @@ class AdminController {
     if(req.isAuthenticated()) {
       if(req.user.admin == true) {
         //xử lí trang thai
-        var thisUser = await User.findOne({email: req.param.user, email: { $ne: req.user.email }});
+        var thisUser = await User.findOne({email: req.params.user});
         thisUser.active = false;
         thisUser.save();
         //xử lý hien thi
-        res.redirect('/admin/'+ req.param.tab);
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
       }
       else
       {
@@ -112,11 +114,105 @@ class AdminController {
     if(req.isAuthenticated()) {
       if(req.user.admin == true) {
         //xử lí trang thai
-        var thisUser = await User.findOne({email: req.param.user, email: { $ne: req.user.email }});
+        var thisUser = await User.findOne({email: req.params.user});
         thisUser.active = true;
         thisUser.save();
         //xử lý hien thi
-        res.redirect('/admin/'+ req.param.tab);
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async disablePost(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.params.user});
+        thisUser.uploader = false;
+        thisUser.save();
+        //xử lý hien thi
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async enablePost(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.params.user});
+        thisUser.uploader = true;
+        thisUser.save();
+        //xử lý hien thi
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async disableAdmin(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.params.user});
+        thisUser.admin = false;
+        thisUser.save();
+        //xử lý hien thi
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async enableAdmin(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.params.user});
+        thisUser.admin = true;
+        thisUser.save();
+        //xử lý hien thi
+        var tab = req.params.tab;
+        sleep(500);
+        res.redirect('/admin/'+ tab);
       }
       else
       {
@@ -193,10 +289,10 @@ class AdminController {
       if(req.user.admin == true) {
         //xử lí thông tin vào admin
         //xử lý all account
-        var thisbook = await Book.findOne({_id: req.param.book});
+        var thisbook = await Book.findOne({_id: req.params.book});
         thisbook.active = false;
         thisbook.save();
-        res.redirect('/admin/'+ req.param.tab);
+        res.redirect('/admin/'+ req.params.tab);
       }
       else
       {
@@ -214,10 +310,10 @@ class AdminController {
       if(req.user.admin == true) {
         //xử lí thông tin vào admin
         //xử lý all account
-        var thisbook = await Book.findOne({_id: req.param.book});
+        var thisbook = await Book.findOne({_id: req.params.book});
         thisbook.active = true;
         thisbook.save();
-        res.redirect('/admin/'+ req.param.tab);
+        res.redirect('/admin/'+ req.params.tab);
       }
       else
       {
@@ -230,6 +326,12 @@ class AdminController {
     }
   }
 
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 module.exports = new AdminController();
