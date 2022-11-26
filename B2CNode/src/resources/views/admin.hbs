@@ -215,9 +215,9 @@
                                         </div>
                                         <h4>Ngày tạo: {{toDate this.createdAt}}</h4>
                                         {{#if this.active}}
-                                            <span style="color: #000">Trạng thái: <a class="status_account active_account">Active</a></span> 
+                                            <span style="color: #000">Trạng thái: <a href="/admin/{{tab}}/{{this.email}}/disable_user" class="status_account active_account">Active</a></span> 
                                         {{else}}
-                                            <span style="color: #000">Trạng thái: <a class="status_account disable_account">Disable</a></span> 
+                                            <span style="color: #000">Trạng thái: <a href="/admin/{{tab}}/{{this.email}}/enable_user" class="status_account disable_account">Disable</a></span> 
                                         {{/if}}
                                     </div>
                                 </li>
