@@ -1,6 +1,5 @@
 const User = require('../models/User');
 const Book = require('../models/Books');
-const View = require('../models/Views');
 
 class AdminController {
   //[get] -> home
@@ -10,7 +9,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'all_user';
-        var lstUser = await User.find({});
+        var lstUser = await User.find({email: { $ne: req.user.email }});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -31,7 +30,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'post_user';
-        var lstUser = await User.find({uploader: true});
+        var lstUser = await User.find({uploader: true, email: { $ne: req.user.email }});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -52,7 +51,7 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'admin_user';
-        var lstUser = await User.find({admin: true});
+        var lstUser = await User.find({admin: true, email: { $ne: req.user.email }});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
       }
@@ -73,9 +72,152 @@ class AdminController {
         //xử lí thông tin vào admin
         //xử lý all account
         var tab = 'disable_user';
-        var lstUser = await User.find({active: false});
+        var lstUser = await User.find({active: false, email: { $ne: req.user.email }});
         lstUser = lstUser.map(user => user.toObject());
         res.render('admin', {session: req.user, layout: false, lstUser, tab});
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async disableAccount(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.param.user, email: { $ne: req.user.email }});
+        thisUser.active = false;
+        thisUser.save();
+        //xử lý hien thi
+        res.redirect('/admin/'+ req.param.tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async enableAccount(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí trang thai
+        var thisUser = await User.findOne({email: req.param.user, email: { $ne: req.user.email }});
+        thisUser.active = true;
+        thisUser.save();
+        //xử lý hien thi
+        res.redirect('/admin/'+ req.param.tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async allBook(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        var tab = 'all_books';
+        var lstBook = await Book.find({});
+        lstBook = lstBook.map(user => user.toObject());
+        res.render('admin', {session: req.user, layout: false, lstBook, tab});
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async vipBook(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí thông tin vào book
+        var tab = 'all_books';
+        var lstBook = await Book.find({vip: true});
+        lstBook = lstBook.map(user => user.toObject());
+        res.render('admin', {session: req.user, layout: false, lstBook, tab});
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async disabledBook(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí thông tin vào book
+        var tab = 'disable_books';
+        var lstBook = await Book.find({active: false});
+        lstBook = lstBook.map(user => user.toObject());
+        res.render('admin', {session: req.user, layout: false, lstBook, tab});
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async disableBook(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí thông tin vào admin
+        //xử lý all account
+        var thisbook = await Book.findOne({_id: req.param.book});
+        thisbook.active = false;
+        thisbook.save();
+        res.redirect('/admin/'+ req.param.tab);
+      }
+      else
+      {
+        res.redirect('/');
+      }
+    }
+    else
+    {
+      res.redirect('/auth/login');
+    }
+  }
+
+  async enableBook(req, res) { 
+    if(req.isAuthenticated()) {
+      if(req.user.admin == true) {
+        //xử lí thông tin vào admin
+        //xử lý all account
+        var thisbook = await Book.findOne({_id: req.param.book});
+        thisbook.active = true;
+        thisbook.save();
+        res.redirect('/admin/'+ req.param.tab);
       }
       else
       {
