@@ -121,9 +121,11 @@ hbs.registerHelper('checkType', function(val1, val2) {
   }
 });
 
-//hbs between 2 main tag
+//hbs between 4 main tags
 hbs.registerHelper('changeMain', function(value) {
   if(value == 'all_user' || value == 'post_user' || value == 'admin_user' || value == 'disable_user') { return 'user_active'}
+  else if(value == 'views_analyze') { return 'views_active'}
+  else if(value == 'income_analyze') { return 'income_active'}
   else { return 'book_active' }
 });
 
