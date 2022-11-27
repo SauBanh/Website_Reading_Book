@@ -31,6 +31,7 @@
         width: 25%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         height: 100%;
     }
     
@@ -47,10 +48,11 @@
     {{#each lstBook}}
         <div class="box_link_book">
             <div class="box_book_page_userLstBook">
-                <a href="/read/{{slug}}">Tên sách: {{bookname}}</a>
+                <a href="/read/{{slug}}">Tên sách: {{bookname}}
                 {{#if this.vip}}
-                    <div class="tag_vip">Vip</div>
+                    (VIP)
                 {{/if}} 
+                </a>
                 <div class="btn_book">
                     <a href="/upload/{{slug}}/addchap">Thêm chap</a>
                     <a style="color: #eb5151;" href="/read/{{slug}}/delete">Xóa sách</a>
