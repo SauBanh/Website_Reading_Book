@@ -69,8 +69,15 @@
             font-size: 16px;
             line-height: 50px;
             height: 50px;
+            border-bottom: 1px solid #fff;
+        }
+        .item__tab_left_app a{
             color: #fff;
             cursor: pointer;
+            height: 100%;
+            width: 100%;
+            display: block;
+            text-decoration: none;
         }
         .active_left{
             background-color: #e14d43;
@@ -127,7 +134,7 @@
         .active_top_pane{
             display: flex;
         }
-        .{{tab}}{
+        .{{tab}},.active_top{
             display: block;
             background-color: #fff;
             border-bottom: 1px solid #fff;
@@ -187,8 +194,8 @@
     <div class="app">
         <div class="tab_left_app">
             <ul class="list_tab_left_app">
-                <li class="item__tab_left_app active_left">Quản lý tài khoản</li>
-                <li class="item__tab_left_app">Quản lý truyện</li>
+                <li class="item__tab_left_app active_left"><a href="#">Quản lý tài khoản</a></li>
+                <li class="item__tab_left_app"><a href="#">Quản lý truyện</a></li>
             </ul>
         </div>
         <div class="box_container">
@@ -197,7 +204,7 @@
                 <div class="box_content_right">
                     {{!-- chọn tab  --}}
                     <ul class="list_tab_top_app">
-                        <li class="item_tab_top_app active_top all_user"><a href="/admin/all_user">Tât cả tài khoản người dùng</a></li>
+                        <li class="item_tab_top_app all_user"><a href="/admin/all_user">Tât cả tài khoản người dùng</a></li>
                         <li class="item_tab_top_app post_user"><a href="/admin/post_user">Tài khoản có quyền đăng sách</a></li>
                         <li class="item_tab_top_app admin_user"><a href="/admin/admin_user">Tài khoản admin</a></li>
                         <li class="item_tab_top_app disable_user"><a href="/admin/disable_user">Tài khoản bị disable</a></li>
@@ -231,8 +238,9 @@
             <div class="pane__tab_left_app">
                 <div class="box_content_right">
                     <ul class="list_tab_top_app">
-                        <li class="item_tab_top_app_qltr active_top">Tất cả truyện</li>
-                        <li class="item_tab_top_app_qltr">Truyện bị disable</li>
+                        <li class="item_tab_top_app_qltr active_top"><a href="#">Tất cả truyện</a></li>
+                        <li class="item_tab_top_app_qltr"><a href="#">Truyện Vip</a></li>
+                        <li class="item_tab_top_app_qltr"><a href="#">Truyện bị disable</a></li>
                     </ul>
                     <div class="box_content_top">
                         <div class="pane_tab_top_app_qltr active_top_pane">
