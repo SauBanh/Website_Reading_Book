@@ -16,7 +16,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -37,7 +37,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -58,7 +58,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -79,7 +79,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -102,7 +102,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -125,7 +125,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -148,7 +148,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -171,7 +171,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -194,7 +194,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -217,7 +217,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -236,7 +236,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -256,7 +256,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -276,7 +276,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -300,7 +300,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -322,7 +322,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -344,7 +344,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else
@@ -366,7 +366,7 @@ class AdminController {
       }
       else
       {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     }
     else

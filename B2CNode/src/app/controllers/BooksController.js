@@ -27,7 +27,7 @@ class BooksController {
     if(thisbook.vip == true){
       //check xem nguoi dung da dang nhap chua
       if(!req.isAuthenticated()){
-        res.redirect('/');
+        res.redirect('/auth/login');
       } else {
         const userVipDate = new Date(req.user.vipexpire);
         const today = new Date(Date.now());
@@ -102,10 +102,10 @@ class BooksController {
         lstNotify.forEach( noti => { noti.remove(); });
         res.redirect('/user/book');
       } else {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     } else {
-      res.redirect('/');
+      res.redirect('/auth/login');
     }
   }
 
@@ -121,7 +121,7 @@ class BooksController {
     if(thisbook.vip == true){
       //check xem nguoi dung da dang nhap chua
       if(!req.isAuthenticated()){
-        res.redirect('/');
+        res.redirect('/auth/login');
       } else {
         const userVipDate = new Date(req.user.vipexpire);
         const today = new Date(Date.now());
@@ -153,7 +153,7 @@ class BooksController {
     if(thisbook.vip == true){
       //check xem nguoi dung da dang nhap chua
       if(!req.isAuthenticated()){
-        res.redirect('/');
+        res.redirect('/auth/login');
       } else {
         const userVipDate = new Date(req.user.vipexpire);
         const today = new Date(Date.now());
@@ -214,7 +214,7 @@ class BooksController {
     if(thisbook.vip == true){
       //check xem nguoi dung da dang nhap chua
       if(!req.isAuthenticated()){
-        res.redirect('/');
+        res.redirect('/auth/login');
       } else {
         const userVipDate = new Date(req.user.vipexpire);
         const today = new Date(Date.now());
@@ -296,10 +296,10 @@ class BooksController {
         res.render('book', {notify, session: req.user, thisbook: thisbook.toObject(), lstchap: chaps, viewNumber, chapCount, thisUser, lstcomment});
         });
       } else {
-        res.redirect('/');
+        res.redirect('/lost');
       }
     } else {
-      res.redirect('/');
+      res.redirect('/auth/login');
     }
   }
 
