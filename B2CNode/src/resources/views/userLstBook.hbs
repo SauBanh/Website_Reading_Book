@@ -48,9 +48,11 @@
     {{#each lstBook}}
         <div class="box_link_book">
             <div class="box_book_page_userLstBook">
-                <a href="/read/{{slug}}">Tên sách: {{bookname}}
                 {{#if this.vip}}
+                <a style="color: #efd637;" href="/read/{{slug}}">Tên sách: {{bookname}}
                     (VIP)
+                {{else}}
+                <a href="/read/{{slug}}">Tên sách: {{bookname}}
                 {{/if}} 
                 </a>
                 <div class="btn_book">
