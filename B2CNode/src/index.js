@@ -121,6 +121,61 @@ hbs.registerHelper('checkType', function(val1, val2) {
   }
 });
 
+//hbs between 2 main tag
+hbs.registerHelper('changeMain', function(value) {
+  if(value == 'all_user' || value == 'post_user' || value == 'admin_user' || value == 'disable_user') { return 'user_active'}
+  else { return 'book_active' }
+});
+
+//
+hbs.registerHelper('changeSpanBook', function(value) {
+  if(value == 'vip_book')
+    { return 'Trạng thái vip: ' }
+  else
+    { return 'Trạng thái: ' }
+});
+
+hbs.registerHelper('enableRuleBook', function(value) {
+  switch(value){
+    
+    case 'vip_book': {return 'enable_vip_book'}
+
+    default: {return 'enable_book'}
+
+  }
+});
+
+hbs.registerHelper('disableRuleBook', function(value) {
+  switch(value){
+    
+    case 'vip_book': {return 'disable_vip_book'}
+
+    default: {return 'disable_book'}
+
+  }
+});
+
+hbs.registerHelper('checkTypeBook', function(val1, val2) {
+  switch(val1){
+    
+    case 'vip_book': {
+      if(val2.vip){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    default: {
+      if(val2.active){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+  }
+});
 
 
 //xac thuc dang nhap user-password
